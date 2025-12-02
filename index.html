@@ -66,18 +66,18 @@
 
         .vine-left {
             left: 0;
-            top: 80px;
-            width: 120px;
-            height: 300px;
-            opacity: 0.12;
+            top: 60px;
+            width: 80px;
+            height: 120px;
+            opacity: 0.32;
         }
 
         .vine-right {
             right: 0;
-            top: 80px;
-            width: 120px;
-            height: 300px;
-            opacity: 0.12;
+            top: 60px;
+            width: 80px;
+            height: 120px;
+            opacity: 0.32;
             transform: scaleX(-1);
         }
 
@@ -92,7 +92,7 @@
             bottom: 0;
             width: 150px;
             height: 200px;
-            opacity: 0.10;
+            opacity: 0.28;
             transform: rotate(180deg);
         }
 
@@ -101,7 +101,7 @@
             bottom: 0;
             width: 150px;
             height: 200px;
-            opacity: 0.10;
+            opacity: 0.28;
             transform: rotate(180deg) scaleX(-1);
         }
 
@@ -110,7 +110,7 @@
             top: 0;
             width: 100px;
             height: 180px;
-            opacity: 0.10;
+            opacity: 0.28;
             transform: scaleX(-1);
         }
 
@@ -120,7 +120,7 @@
             transform: translateY(-50%);
             width: 100px;
             height: 250px;
-            opacity: 0.08;
+            opacity: 0.25;
         }
 
         .vine-mid-right {
@@ -129,7 +129,85 @@
             transform: translateY(-50%) scaleX(-1);
             width: 100px;
             height: 250px;
-            opacity: 0.08;
+            opacity: 0.25;
+        }
+
+        /* Rock Decorations */
+        .rock-decoration {
+            position: absolute;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .rock-decoration svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .rock-cluster-left {
+            left: 0;
+            bottom: 0;
+            width: 200px;
+            height: 120px;
+            opacity: 0.30;
+        }
+
+        .rock-cluster-right {
+            right: 0;
+            bottom: 0;
+            width: 200px;
+            height: 120px;
+            opacity: 0.30;
+            transform: scaleX(-1);
+        }
+
+        .rock-mid-left {
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100px;
+            height: 80px;
+            opacity: 0.28;
+        }
+
+        .rock-mid-right {
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%) scaleX(-1);
+            width: 100px;
+            height: 80px;
+            opacity: 0.28;
+        }
+
+        .rock-top-left {
+            left: 20px;
+            top: 80px;
+            width: 80px;
+            height: 50px;
+            opacity: 0.25;
+        }
+
+        .rock-top-right {
+            right: 20px;
+            top: 80px;
+            width: 80px;
+            height: 50px;
+            opacity: 0.25;
+            transform: scaleX(-1);
+        }
+
+        .rock-accent {
+            width: 60px;
+            height: 40px;
+            opacity: 0.32;
+        }
+
+        .rock-accent-bottom-left {
+            left: 30px;
+            bottom: 30px;
+            width: 60px;
+            height: 40px;
+            opacity: 0.32;
         }
 
         /* Organic Section Divider */
@@ -158,6 +236,14 @@
 
         .section-divider.to-stone-light path {
             fill: var(--stone-light);
+        }
+
+        .section-divider.to-olive-tint path {
+            fill: #E5EDE0;
+        }
+
+        .section-divider.to-cream path {
+            fill: var(--cream);
         }
 
         /* Light Flicker Animation */
@@ -200,7 +286,7 @@
 
         .nav-logo {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.4rem;
+            font-size: 1.7rem;
             color: var(--terracotta);
             text-decoration: none;
             font-weight: 600;
@@ -303,7 +389,7 @@
 
         /* Logo */
         .hero-logo {
-            width: 280px;
+            width: 400px;
             max-width: 80%;
             margin: 0 auto 2rem;
             filter: drop-shadow(0 4px 20px rgba(0,0,0,0.08));
@@ -421,6 +507,8 @@
         /* About Section */
         .about {
             background: var(--cream);
+            position: relative;
+            overflow: hidden;
         }
 
         .about-content {
@@ -477,7 +565,9 @@
 
         /* Mission & Vision */
         .mission-vision {
-            background: var(--warm-white);
+            background: linear-gradient(180deg, #EDF2EA 0%, #E5EDE0 100%);
+            position: relative;
+            overflow: hidden;
         }
 
         .mv-grid {
@@ -492,6 +582,8 @@
             border-radius: 4px;
             border-left: 4px solid var(--terracotta);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 20px rgba(92, 64, 51, 0.12),
+                        0 2px 8px rgba(0, 0, 0, 0.06);
         }
 
         .mv-card:hover {
@@ -510,7 +602,7 @@
         }
 
         .mv-card p {
-            color: var(--text-muted);
+            color: var(--text-dark);
             font-size: 1rem;
         }
 
@@ -585,7 +677,9 @@
 
         /* Programs */
         .programs {
-            background: var(--warm-white);
+            background: linear-gradient(180deg, #E5EDE0 0%, #EDF2EA 100%);
+            position: relative;
+            overflow: hidden;
         }
 
         .programs-content {
@@ -640,6 +734,8 @@
             background: var(--cream);
             border-radius: 4px;
             transition: all 0.3s ease;
+            box-shadow: 0 4px 16px rgba(92, 64, 51, 0.10),
+                        0 2px 6px rgba(0, 0, 0, 0.05);
         }
 
         .feature:hover {
@@ -675,12 +771,14 @@
 
         .feature p {
             font-size: 0.95rem;
-            color: var(--text-muted);
+            color: var(--text-dark);
         }
 
         /* Blog Section */
         .blog {
             background: var(--cream);
+            position: relative;
+            overflow: hidden;
         }
 
         .blog-grid {
@@ -940,18 +1038,42 @@
             color: var(--stone);
             padding: 3rem 2rem;
             text-align: center;
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3C!-- Pebble pattern --%3E%3Cellipse cx='15' cy='12' rx='8' ry='6' fill='%234A3528' opacity='0.6'/%3E%3Cellipse cx='14' cy='11' rx='6' ry='4' fill='%235C4033' opacity='0.4'/%3E%3Cellipse cx='45' cy='8' rx='10' ry='7' fill='%234A3528' opacity='0.5'/%3E%3Cellipse cx='44' cy='7' rx='7' ry='5' fill='%236B5D52' opacity='0.3'/%3E%3Cellipse cx='78' cy='15' rx='12' ry='8' fill='%234A3528' opacity='0.6'/%3E%3Cellipse cx='77' cy='14' rx='9' ry='6' fill='%235C4033' opacity='0.4'/%3E%3Cellipse cx='8' cy='35' rx='7' ry='5' fill='%234A3528' opacity='0.5'/%3E%3Cellipse cx='32' cy='28' rx='9' ry='6' fill='%234A3528' opacity='0.6'/%3E%3Cellipse cx='31' cy='27' rx='6' ry='4' fill='%236B5D52' opacity='0.3'/%3E%3Cellipse cx='60' cy='32' rx='11' ry='7' fill='%234A3528' opacity='0.5'/%3E%3Cellipse cx='59' cy='31' rx='8' ry='5' fill='%235C4033' opacity='0.4'/%3E%3Cellipse cx='88' cy='38' rx='8' ry='6' fill='%234A3528' opacity='0.6'/%3E%3Cellipse cx='20' cy='55' rx='10' ry='7' fill='%234A3528' opacity='0.5'/%3E%3Cellipse cx='19' cy='54' rx='7' ry='5' fill='%235C4033' opacity='0.4'/%3E%3Cellipse cx='48' cy='52' rx='8' ry='5' fill='%234A3528' opacity='0.6'/%3E%3Cellipse cx='75' cy='58' rx='9' ry='6' fill='%234A3528' opacity='0.5'/%3E%3Cellipse cx='74' cy='57' rx='6' ry='4' fill='%236B5D52' opacity='0.3'/%3E%3Cellipse cx='95' cy='55' rx='7' ry='5' fill='%234A3528' opacity='0.5'/%3E%3Cellipse cx='12' cy='78' rx='9' ry='6' fill='%234A3528' opacity='0.6'/%3E%3Cellipse cx='11' cy='77' rx='6' ry='4' fill='%235C4033' opacity='0.4'/%3E%3Cellipse cx='38' cy='75' rx='11' ry='8' fill='%234A3528' opacity='0.5'/%3E%3Cellipse cx='37' cy='74' rx='8' ry='6' fill='%236B5D52' opacity='0.3'/%3E%3Cellipse cx='65' cy='80' rx='8' ry='5' fill='%234A3528' opacity='0.6'/%3E%3Cellipse cx='90' cy='78' rx='10' ry='7' fill='%234A3528' opacity='0.5'/%3E%3Cellipse cx='89' cy='77' rx='7' ry='5' fill='%235C4033' opacity='0.4'/%3E%3Cellipse cx='5' cy='95' rx='6' ry='4' fill='%234A3528' opacity='0.5'/%3E%3Cellipse cx='55' cy='92' rx='7' ry='5' fill='%234A3528' opacity='0.6'/%3E%3Cellipse cx='82' cy='95' rx='9' ry='6' fill='%234A3528' opacity='0.5'/%3E%3C/svg%3E");
+            background-repeat: repeat;
+            background-size: 150px 150px;
+            opacity: 0.8;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        footer > * {
+            position: relative;
+            z-index: 1;
         }
 
         .footer-logo {
             font-family: 'Cormorant Garamond', serif;
             font-size: 1.5rem;
-            color: var(--warm-white);
+            color: #FFFFFF;
             margin-bottom: 1rem;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.3);
         }
 
         footer p {
             font-size: 0.9rem;
-            opacity: 0.7;
+            color: #F5F0EB;
+            opacity: 1;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.2);
         }
 
         footer a {
@@ -1092,27 +1214,43 @@
         <!-- Torch Glow Effect -->
         <div class="torch-glow"></div>
 
-        <!-- Vine Decorations -->
+        <!-- Vine Decorations (top corners) -->
         <div class="vine-decoration vine-left">
-            <svg viewBox="0 0 120 300" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M-10 0 Q30 50 20 100 Q10 150 30 200 Q50 250 20 300" stroke="#5C7A4E" stroke-width="3" fill="none"/>
-                <ellipse cx="25" cy="60" rx="15" ry="8" fill="#7A9A6B" transform="rotate(-30 25 60)"/>
-                <ellipse cx="15" cy="100" rx="12" ry="6" fill="#7A9A6B" transform="rotate(20 15 100)"/>
-                <ellipse cx="30" cy="140" rx="14" ry="7" fill="#5C7A4E" transform="rotate(-15 30 140)"/>
-                <ellipse cx="20" cy="180" rx="13" ry="6" fill="#7A9A6B" transform="rotate(25 20 180)"/>
-                <ellipse cx="35" cy="220" rx="15" ry="8" fill="#5C7A4E" transform="rotate(-20 35 220)"/>
-                <ellipse cx="18" cy="260" rx="12" ry="6" fill="#7A9A6B" transform="rotate(15 18 260)"/>
+            <svg viewBox="0 0 100 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M-5 0 Q25 40 18 80 Q10 120 25 160" stroke="#5C7A4E" stroke-width="2.5" fill="none"/>
+                <ellipse cx="20" cy="40" rx="12" ry="6" fill="#7A9A6B" transform="rotate(-30 20 40)"/>
+                <ellipse cx="15" cy="80" rx="10" ry="5" fill="#5C7A4E" transform="rotate(20 15 80)"/>
+                <ellipse cx="22" cy="120" rx="11" ry="5" fill="#7A9A6B" transform="rotate(-15 22 120)"/>
             </svg>
         </div>
         <div class="vine-decoration vine-right">
-            <svg viewBox="0 0 120 300" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M-10 0 Q30 50 20 100 Q10 150 30 200 Q50 250 20 300" stroke="#5C7A4E" stroke-width="3" fill="none"/>
-                <ellipse cx="25" cy="60" rx="15" ry="8" fill="#7A9A6B" transform="rotate(-30 25 60)"/>
-                <ellipse cx="15" cy="100" rx="12" ry="6" fill="#7A9A6B" transform="rotate(20 15 100)"/>
-                <ellipse cx="30" cy="140" rx="14" ry="7" fill="#5C7A4E" transform="rotate(-15 30 140)"/>
-                <ellipse cx="20" cy="180" rx="13" ry="6" fill="#7A9A6B" transform="rotate(25 20 180)"/>
-                <ellipse cx="35" cy="220" rx="15" ry="8" fill="#5C7A4E" transform="rotate(-20 35 220)"/>
-                <ellipse cx="18" cy="260" rx="12" ry="6" fill="#7A9A6B" transform="rotate(15 18 260)"/>
+            <svg viewBox="0 0 100 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M-5 0 Q25 40 18 80 Q10 120 25 160" stroke="#5C7A4E" stroke-width="2.5" fill="none"/>
+                <ellipse cx="20" cy="40" rx="12" ry="6" fill="#7A9A6B" transform="rotate(-30 20 40)"/>
+                <ellipse cx="15" cy="80" rx="10" ry="5" fill="#5C7A4E" transform="rotate(20 15 80)"/>
+                <ellipse cx="22" cy="120" rx="11" ry="5" fill="#7A9A6B" transform="rotate(-15 22 120)"/>
+            </svg>
+        </div>
+
+        <!-- Rock Decorations -->
+        <div class="rock-decoration rock-cluster-left">
+            <svg viewBox="0 0 200 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <ellipse cx="70" cy="90" rx="60" ry="28" fill="#5C4033"/>
+                <ellipse cx="65" cy="85" rx="48" ry="20" fill="#6B5D52"/>
+                <ellipse cx="150" cy="95" rx="42" ry="22" fill="#5C4033"/>
+                <ellipse cx="147" cy="90" rx="32" ry="15" fill="#6B5D52"/>
+                <ellipse cx="110" cy="100" rx="25" ry="12" fill="#5C4033"/>
+                <ellipse cx="30" cy="105" rx="28" ry="14" fill="#5C4033"/>
+            </svg>
+        </div>
+        <div class="rock-decoration rock-cluster-right">
+            <svg viewBox="0 0 200 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <ellipse cx="70" cy="90" rx="60" ry="28" fill="#5C4033"/>
+                <ellipse cx="65" cy="85" rx="48" ry="20" fill="#6B5D52"/>
+                <ellipse cx="150" cy="95" rx="42" ry="22" fill="#5C4033"/>
+                <ellipse cx="147" cy="90" rx="32" ry="15" fill="#6B5D52"/>
+                <ellipse cx="110" cy="100" rx="25" ry="12" fill="#5C4033"/>
+                <ellipse cx="30" cy="105" rx="28" ry="14" fill="#5C4033"/>
             </svg>
         </div>
 
@@ -1183,6 +1321,40 @@
 
     <!-- Mission & Vision -->
     <section id="mission" class="mission-vision">
+        <!-- Vine Decorations -->
+        <div class="vine-decoration vine-mid-left">
+            <svg viewBox="0 0 100 250" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M-5 0 Q25 40 15 80 Q5 120 25 160 Q40 200 15 250" stroke="#5C7A4E" stroke-width="2" fill="none"/>
+                <ellipse cx="20" cy="45" rx="10" ry="5" fill="#7A9A6B" transform="rotate(-30 20 45)"/>
+                <ellipse cx="12" cy="95" rx="9" ry="4" fill="#5C7A4E" transform="rotate(20 12 95)"/>
+                <ellipse cx="22" cy="145" rx="10" ry="5" fill="#7A9A6B" transform="rotate(-15 22 145)"/>
+                <ellipse cx="30" cy="195" rx="9" ry="4" fill="#5C7A4E" transform="rotate(25 30 195)"/>
+            </svg>
+        </div>
+        <div class="vine-decoration vine-mid-right">
+            <svg viewBox="0 0 100 250" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M-5 0 Q25 40 15 80 Q5 120 25 160 Q40 200 15 250" stroke="#5C7A4E" stroke-width="2" fill="none"/>
+                <ellipse cx="20" cy="45" rx="10" ry="5" fill="#7A9A6B" transform="rotate(-30 20 45)"/>
+                <ellipse cx="12" cy="95" rx="9" ry="4" fill="#5C7A4E" transform="rotate(20 12 95)"/>
+                <ellipse cx="22" cy="145" rx="10" ry="5" fill="#7A9A6B" transform="rotate(-15 22 145)"/>
+                <ellipse cx="30" cy="195" rx="9" ry="4" fill="#5C7A4E" transform="rotate(25 30 195)"/>
+            </svg>
+        </div>
+        <!-- Rock Decorations -->
+        <div class="rock-decoration rock-top-right">
+            <svg viewBox="0 0 80 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <ellipse cx="40" cy="32" rx="30" ry="16" fill="#5C4033"/>
+                <ellipse cx="38" cy="28" rx="22" ry="10" fill="#6B5D52"/>
+                <ellipse cx="65" cy="38" rx="14" ry="8" fill="#5C4033"/>
+            </svg>
+        </div>
+        <div class="rock-decoration rock-accent-bottom-left">
+            <svg viewBox="0 0 80 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <ellipse cx="40" cy="32" rx="30" ry="16" fill="#5C4033"/>
+                <ellipse cx="38" cy="28" rx="22" ry="10" fill="#6B5D52"/>
+                <ellipse cx="65" cy="38" rx="14" ry="8" fill="#5C4033"/>
+            </svg>
+        </div>
         <div class="section-container">
             <div class="section-header">
                 <h2>Our Purpose</h2>
@@ -1275,7 +1447,7 @@
     </section>
 
     <!-- Organic Divider: Values to Programs -->
-    <div class="section-divider to-warm-white">
+    <div class="section-divider to-olive-tint">
         <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
             <path d="M0,40 C200,80 400,10 600,50 C800,90 1000,30 1200,70 L1200,120 L0,120 Z"/>
         </svg>
@@ -1283,6 +1455,33 @@
 
     <!-- Programs -->
     <section id="programs" class="programs">
+        <!-- Vine Decorations -->
+        <div class="vine-decoration vine-top-right-small">
+            <svg viewBox="0 0 100 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M-5 0 Q20 30 15 60 Q10 100 30 140 Q40 170 25 180" stroke="#5C7A4E" stroke-width="2" fill="none"/>
+                <ellipse cx="18" cy="40" rx="9" ry="4" fill="#7A9A6B" transform="rotate(-25 18 40)"/>
+                <ellipse cx="15" cy="85" rx="8" ry="4" fill="#5C7A4E" transform="rotate(15 15 85)"/>
+                <ellipse cx="28" cy="125" rx="9" ry="4" fill="#7A9A6B" transform="rotate(-10 28 125)"/>
+            </svg>
+        </div>
+        <!-- Rock Decorations -->
+        <div class="rock-decoration rock-mid-right">
+            <svg viewBox="0 0 100 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <ellipse cx="50" cy="55" rx="40" ry="22" fill="#5C4033"/>
+                <ellipse cx="47" cy="50" rx="30" ry="15" fill="#6B5D52"/>
+                <ellipse cx="25" cy="65" rx="22" ry="12" fill="#5C4033"/>
+            </svg>
+        </div>
+        <div class="rock-decoration rock-cluster-left">
+            <svg viewBox="0 0 200 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <ellipse cx="70" cy="90" rx="60" ry="28" fill="#5C4033"/>
+                <ellipse cx="65" cy="85" rx="48" ry="20" fill="#6B5D52"/>
+                <ellipse cx="150" cy="95" rx="42" ry="22" fill="#5C4033"/>
+                <ellipse cx="147" cy="90" rx="32" ry="15" fill="#6B5D52"/>
+                <ellipse cx="110" cy="100" rx="25" ry="12" fill="#5C4033"/>
+                <ellipse cx="30" cy="105" rx="28" ry="14" fill="#5C4033"/>
+            </svg>
+        </div>
         <div class="section-container">
             <div class="section-header">
                 <h2>Our Programs</h2>
@@ -1297,12 +1496,13 @@
                     <div class="feature">
                         <div class="feature-icon">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
                             </svg>
                         </div>
                         <div>
-                            <h4>Individual Counseling</h4>
-                            <p>Private sessions tailored to your unique journey</p>
+                            <h4>Spiritual Guidance</h4>
+                            <p>Faith-based support for lasting transformation</p>
                         </div>
                     </div>
                     <div class="feature">
@@ -1322,13 +1522,12 @@
                     <div class="feature">
                         <div class="feature-icon">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-                                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
                             </svg>
                         </div>
                         <div>
-                            <h4>Spiritual Guidance</h4>
-                            <p>Faith-based support for lasting transformation</p>
+                            <h4>Individual Counseling</h4>
+                            <p>Private sessions tailored to your unique journey</p>
                         </div>
                     </div>
                 </div>
@@ -1337,7 +1536,7 @@
     </section>
 
     <!-- Organic Divider: Programs to Blog -->
-    <div class="section-divider to-stone-light">
+    <div class="section-divider to-cream">
         <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
             <path d="M0,50 C300,90 500,20 750,60 C900,85 1100,40 1200,55 L1200,120 L0,120 Z"/>
         </svg>
@@ -1345,6 +1544,43 @@
 
     <!-- Blog Section -->
     <section id="blog" class="blog">
+        <!-- Vine Decorations -->
+        <div class="vine-decoration vine-mid-left">
+            <svg viewBox="0 0 100 250" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M-5 0 Q25 40 15 80 Q5 120 25 160 Q40 200 15 250" stroke="#5C7A4E" stroke-width="2" fill="none"/>
+                <ellipse cx="20" cy="45" rx="10" ry="5" fill="#7A9A6B" transform="rotate(-30 20 45)"/>
+                <ellipse cx="12" cy="95" rx="9" ry="4" fill="#5C7A4E" transform="rotate(20 12 95)"/>
+                <ellipse cx="22" cy="145" rx="10" ry="5" fill="#7A9A6B" transform="rotate(-15 22 145)"/>
+                <ellipse cx="30" cy="195" rx="9" ry="4" fill="#5C7A4E" transform="rotate(25 30 195)"/>
+            </svg>
+        </div>
+        <div class="vine-decoration vine-mid-right">
+            <svg viewBox="0 0 100 250" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M-5 0 Q25 40 15 80 Q5 120 25 160 Q40 200 15 250" stroke="#5C7A4E" stroke-width="2" fill="none"/>
+                <ellipse cx="20" cy="45" rx="10" ry="5" fill="#7A9A6B" transform="rotate(-30 20 45)"/>
+                <ellipse cx="12" cy="95" rx="9" ry="4" fill="#5C7A4E" transform="rotate(20 12 95)"/>
+                <ellipse cx="22" cy="145" rx="10" ry="5" fill="#7A9A6B" transform="rotate(-15 22 145)"/>
+                <ellipse cx="30" cy="195" rx="9" ry="4" fill="#5C7A4E" transform="rotate(25 30 195)"/>
+            </svg>
+        </div>
+        <!-- Rock Decorations -->
+        <div class="rock-decoration rock-cluster-right">
+            <svg viewBox="0 0 200 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <ellipse cx="70" cy="90" rx="60" ry="28" fill="#5C4033"/>
+                <ellipse cx="65" cy="85" rx="48" ry="20" fill="#6B5D52"/>
+                <ellipse cx="150" cy="95" rx="42" ry="22" fill="#5C4033"/>
+                <ellipse cx="147" cy="90" rx="32" ry="15" fill="#6B5D52"/>
+                <ellipse cx="110" cy="100" rx="25" ry="12" fill="#5C4033"/>
+                <ellipse cx="30" cy="105" rx="28" ry="14" fill="#5C4033"/>
+            </svg>
+        </div>
+        <div class="rock-decoration rock-top-left">
+            <svg viewBox="0 0 80 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <ellipse cx="40" cy="32" rx="30" ry="16" fill="#5C4033"/>
+                <ellipse cx="38" cy="28" rx="22" ry="10" fill="#6B5D52"/>
+                <ellipse cx="65" cy="38" rx="14" ry="8" fill="#5C4033"/>
+            </svg>
+        </div>
         <div class="section-container">
             <div class="section-header">
                 <h2>From Our Blog</h2>
