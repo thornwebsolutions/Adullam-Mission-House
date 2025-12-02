@@ -579,31 +579,6 @@
             stroke: currentColor;
         }
 
-        /* Footer */
-        footer {
-            background: var(--brown-deep);
-            color: var(--stone);
-            padding: 3rem 2rem;
-            text-align: center;
-        }
-
-        .footer-logo {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.5rem;
-            color: var(--warm-white);
-            margin-bottom: 1rem;
-        }
-
-        footer p {
-            font-size: 0.9rem;
-            opacity: 0.7;
-        }
-
-        footer a {
-            color: var(--sage-green);
-            text-decoration: none;
-        }
-
         /* Responsive */
         @media (max-width: 992px) {
             .featured-post {
@@ -909,12 +884,9 @@
         </div>
     </main>
 
-    <!-- Footer -->
-    <footer>
-        <div class="footer-logo">Adullam Mission House</div>
-        <p>A Safe Haven for the Broken to Be Restored and Launched</p>
-        <p style="margin-top: 1.5rem;">© 2025 Adullam Mission House. All rights reserved.</p>
-    </footer>
+    <!-- Footer Component -->
+    <site-footer></site-footer>
+    <script src="/components/footer.js"></script>
 
     <script>
         // Mobile menu toggle
@@ -949,6 +921,19 @@
         });
 
         fadeElements.forEach(el => observer.observe(el));
+
+        // Blog card click handlers - make entire card clickable
+        document.querySelectorAll('.blog-grid .blog-card').forEach(card => {
+            card.addEventListener('click', function(e) {
+                // Don't navigate if clicking the link itself (let it handle naturally)
+                if (e.target.closest('.blog-link')) return;
+
+                const link = card.querySelector('.blog-link');
+                if (link) {
+                    window.location.href = link.getAttribute('href');
+                }
+            });
+        });
 
         // Newsletter form handler
         const newsletterForm = document.getElementById('newsletterForm');
