@@ -1,0 +1,1299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adullam Mission House | A Safe Haven for the Broken</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Lato:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --terracotta: #A65D37;
+            --terracotta-dark: #8B4D2E;
+            --brown-deep: #5C4033;
+            --sage-green: #7A9A6B;
+            --olive-green: #5C7A4E;
+            --cream: #FBF9F6;
+            --warm-white: #FFFCF8;
+            --stone: #E8DDD4;
+            --stone-light: #F3EDE7;
+            --text-dark: #3D3229;
+            --text-muted: #6B5D52;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: var(--warm-white);
+            color: var(--text-dark);
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 500;
+            line-height: 1.3;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(251, 249, 246, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 2rem;
+            border-bottom: 1px solid var(--stone);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            color: var(--terracotta);
+            text-decoration: none;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--terracotta);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--terracotta);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .mobile-menu span {
+            width: 25px;
+            height: 2px;
+            background: var(--terracotta);
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 6rem 2rem;
+            background: linear-gradient(180deg, var(--warm-white) 0%, var(--stone-light) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(ellipse at 20% 80%, rgba(122, 154, 107, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 20%, rgba(166, 93, 55, 0.06) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Logo */
+        .hero-logo {
+            width: 280px;
+            max-width: 80%;
+            margin: 0 auto 2rem;
+            filter: drop-shadow(0 4px 20px rgba(0,0,0,0.08));
+        }
+
+        .hero-logo img {
+            width: 100%;
+            height: auto;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.2rem, 5vw, 3.5rem);
+            color: var(--terracotta);
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+        }
+
+        .hero-tagline {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+            color: var(--olive-green);
+            font-style: italic;
+            margin-bottom: 2rem;
+            font-weight: 400;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--terracotta);
+            color: var(--warm-white);
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(166, 93, 55, 0.25);
+        }
+
+        .cta-button:hover {
+            background: var(--terracotta-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(166, 93, 55, 0.35);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-indicator svg {
+            width: 24px;
+            height: 24px;
+            stroke: var(--terracotta);
+            opacity: 0.6;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
+        }
+
+        /* Sections */
+        section {
+            padding: 6rem 2rem;
+        }
+
+        .section-container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            color: var(--terracotta);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 2px;
+            background: var(--sage-green);
+        }
+
+        .section-intro {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 1.5rem auto 0;
+        }
+
+        /* About Section */
+        .about {
+            background: var(--cream);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text p {
+            font-size: 1.05rem;
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image-frame {
+            background: linear-gradient(135deg, var(--sage-green) 0%, var(--olive-green) 100%);
+            border-radius: 4px;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .about-image-frame::before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            right: 15px;
+            bottom: 15px;
+            border: 2px solid var(--terracotta);
+            border-radius: 4px;
+            z-index: -1;
+        }
+
+        .about-quote {
+            color: var(--warm-white);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            font-style: italic;
+            line-height: 1.6;
+        }
+
+        .about-quote cite {
+            display: block;
+            margin-top: 1rem;
+            font-size: 1rem;
+            font-style: normal;
+            opacity: 0.9;
+        }
+
+        /* Mission & Vision */
+        .mission-vision {
+            background: var(--warm-white);
+        }
+
+        .mv-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .mv-card {
+            background: var(--cream);
+            padding: 3rem;
+            border-radius: 4px;
+            border-left: 4px solid var(--terracotta);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .mv-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+        }
+
+        .mv-card:nth-child(2) {
+            border-left-color: var(--sage-green);
+        }
+
+        .mv-card h3 {
+            font-size: 1.6rem;
+            color: var(--brown-deep);
+            margin-bottom: 1.5rem;
+        }
+
+        .mv-card p {
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        /* Core Values */
+        .values {
+            background: var(--stone-light);
+            position: relative;
+        }
+
+        .values::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 5 L55 30 L30 55 L5 30 Z' fill='none' stroke='%23A65D37' stroke-width='0.5' opacity='0.05'/%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .value-card {
+            text-align: center;
+            padding: 2.5rem 1.5rem;
+            background: var(--warm-white);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+        }
+
+        .value-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.1);
+        }
+
+        .value-icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--stone-light) 0%, var(--stone) 100%);
+            border-radius: 50%;
+        }
+
+        .value-icon svg {
+            width: 32px;
+            height: 32px;
+            stroke: var(--terracotta);
+            fill: none;
+            stroke-width: 1.5;
+        }
+
+        .value-card h3 {
+            font-size: 1.3rem;
+            color: var(--brown-deep);
+            margin-bottom: 0.8rem;
+        }
+
+        .value-card p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        /* Programs */
+        .programs {
+            background: var(--warm-white);
+        }
+
+        .programs-content {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .program-card {
+            background: linear-gradient(135deg, var(--terracotta) 0%, var(--terracotta-dark) 100%);
+            padding: 3rem;
+            border-radius: 4px;
+            color: var(--warm-white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .program-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+        }
+
+        .program-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .program-card p {
+            font-size: 1.05rem;
+            opacity: 0.95;
+            line-height: 1.8;
+            position: relative;
+        }
+
+        .program-features {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .feature {
+            display: flex;
+            gap: 1.2rem;
+            padding: 1.5rem;
+            background: var(--cream);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .feature:hover {
+            background: var(--stone-light);
+            transform: translateX(10px);
+        }
+
+        .feature-icon {
+            flex-shrink: 0;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--warm-white);
+            border-radius: 50%;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+        }
+
+        .feature-icon svg {
+            width: 24px;
+            height: 24px;
+            stroke: var(--sage-green);
+            fill: none;
+            stroke-width: 1.5;
+        }
+
+        .feature h4 {
+            font-size: 1.2rem;
+            color: var(--brown-deep);
+            margin-bottom: 0.3rem;
+        }
+
+        .feature p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        /* Blog Section */
+        .blog {
+            background: var(--cream);
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .blog-card-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .blog-card {
+            background: var(--warm-white);
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+
+        .blog-image {
+            height: 200px;
+            background: linear-gradient(135deg, var(--stone) 0%, var(--stone-light) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .blog-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 30% 70%, rgba(122, 154, 107, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 70% 30%, rgba(166, 93, 55, 0.15) 0%, transparent 50%);
+        }
+
+        .blog-image svg {
+            width: 48px;
+            height: 48px;
+            stroke: var(--terracotta);
+            opacity: 0.4;
+        }
+
+        .blog-content {
+            padding: 1.5rem;
+        }
+
+        .blog-date {
+            font-size: 0.85rem;
+            color: var(--sage-green);
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .blog-card h3 {
+            font-size: 1.3rem;
+            color: var(--brown-deep);
+            margin-bottom: 0.8rem;
+            line-height: 1.4;
+        }
+
+        .blog-card > .blog-content > p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .blog-link {
+            color: var(--terracotta);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: gap 0.3s ease;
+        }
+
+        .blog-link:hover {
+            gap: 0.8rem;
+        }
+
+        .blog-link svg {
+            width: 16px;
+            height: 16px;
+            stroke: currentColor;
+        }
+
+        .view-all-btn {
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .cta-button.outline {
+            background: transparent;
+            color: var(--terracotta);
+            border: 2px solid var(--terracotta);
+            box-shadow: none;
+        }
+
+        .cta-button.outline:hover {
+            background: var(--terracotta);
+            color: var(--warm-white);
+        }
+
+        /* Contact / CTA Section */
+        .contact {
+            background: linear-gradient(135deg, var(--brown-deep) 0%, var(--terracotta-dark) 100%);
+            color: var(--warm-white);
+            text-align: center;
+        }
+
+        .contact h2 {
+            color: var(--warm-white);
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            margin-bottom: 1rem;
+        }
+
+        .contact h2::after {
+            background: var(--sage-green);
+        }
+
+        .contact > .section-container > p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 1.5rem auto 2.5rem;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin-top: 3rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .contact-item svg {
+            width: 20px;
+            height: 20px;
+            stroke: var(--sage-green);
+            fill: none;
+            stroke-width: 1.5;
+        }
+
+        .cta-button.light {
+            background: var(--warm-white);
+            color: var(--terracotta);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .cta-button.light:hover {
+            background: var(--cream);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        /* Contact Form */
+        .contact-form {
+            max-width: 500px;
+            margin: 2rem auto 0;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 1rem 1.2rem;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-family: inherit;
+            background: rgba(255, 255, 255, 0.95);
+            color: var(--text-dark);
+        }
+
+        .contact-form input::placeholder,
+        .contact-form textarea::placeholder {
+            color: var(--text-muted);
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(122, 154, 107, 0.4);
+        }
+
+        .contact-form textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .contact-form button {
+            width: 100%;
+            border: none;
+            cursor: pointer;
+        }
+
+        .contact-form button:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+
+        .form-message {
+            margin-top: 1rem;
+            padding: 1rem;
+            border-radius: 4px;
+            text-align: center;
+            display: none;
+        }
+
+        .form-message.success {
+            display: block;
+            background: rgba(122, 154, 107, 0.2);
+            color: var(--warm-white);
+        }
+
+        .form-message.error {
+            display: block;
+            background: rgba(220, 53, 69, 0.2);
+            color: var(--warm-white);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--brown-deep);
+            color: var(--stone);
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            color: var(--warm-white);
+            margin-bottom: 1rem;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        footer a {
+            color: var(--sage-green);
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .about-content,
+            .programs-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .about-image {
+                order: -1;
+            }
+
+            .values-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .mv-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .blog-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+
+            .hero {
+                padding: 8rem 1.5rem 4rem;
+            }
+
+            section {
+                padding: 4rem 1.5rem;
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Fade in animation for scroll */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="nav-logo">Adullam Mission House</a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#mission">Mission</a></li>
+                <li><a href="#values">Values</a></li>
+                <li><a href="#programs">Programs</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <!-- Logo Image -->
+            <div class="hero-logo">
+                <img src="assets/Adullam Mission House copy.png" alt="Adullam Mission House Logo">
+            </div>
+            
+            <h1>Welcome to Adullam Mission House</h1>
+            <p class="hero-tagline">"A Safe Haven for the Broken to Be Restored and Launched."</p>
+            <p class="hero-description">
+                At Adullam Mission House, we believe no one is beyond hope. Inspired by the biblical Cave of Adullam, where David and others found refuge and purpose, we offer a place for those hurting to experience restoration, healing, and empowerment.
+            </p>
+            <a href="#contact" class="cta-button">Find Your Refuge</a>
+        </div>
+        <div class="scroll-indicator">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 5v14M5 12l7 7 7-7"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="section-container">
+            <div class="about-content">
+                <div class="about-text fade-in">
+                    <h2 style="font-size: 2.2rem; color: var(--terracotta); margin-bottom: 1.5rem;">About Us</h2>
+                    <p>
+                        Adullam Mission House was founded on the belief that every broken person deserves a chance to be restored and launched into a purposeful life.
+                    </p>
+                    <p>
+                        Just as David found refuge in the cave of Adullam, our mission is to provide a place of refuge, healing, and community. We are dedicated to helping you discover the purpose the Lord has revealed through your pain and equip you to use that experience to help others.
+                    </p>
+                    <p>
+                        Located in the heart of Blythewood, South Carolina, we welcome all who seek healing, hope, and a supportive community on their journey toward restoration.
+                    </p>
+                </div>
+                <div class="about-image fade-in">
+                    <div class="about-image-frame">
+                        <blockquote class="about-quote">
+                            "David departed from there and escaped to the cave of Adullam... Everyone who was in distress, and everyone who was in debt, and everyone who was bitter in soul, gathered to him."
+                            <cite>— 1 Samuel 22:1-2</cite>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission & Vision -->
+    <section id="mission" class="mission-vision">
+        <div class="section-container">
+            <div class="section-header">
+                <h2>Our Purpose</h2>
+                <p class="section-intro">Guided by faith and compassion, we are committed to walking alongside those who are hurting.</p>
+            </div>
+            <div class="mv-grid">
+                <div class="mv-card fade-in">
+                    <h3>Our Mission</h3>
+                    <p>To provide a sanctuary where broken lives can be restored through holistic care and spiritual renewal, and where individuals are empowered to fulfill their God-given potential.</p>
+                </div>
+                <div class="mv-card fade-in">
+                    <h3>Our Vision</h3>
+                    <p>To be a refuge where brokenness meets restoration, and every person is equipped to rise and live purposefully.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Values -->
+    <section id="values" class="values">
+        <div class="section-container">
+            <div class="section-header">
+                <h2>Our Core Values</h2>
+                <p class="section-intro">These principles guide everything we do at Adullam Mission House.</p>
+            </div>
+            <div class="values-grid">
+                <div class="value-card fade-in">
+                    <div class="value-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                            <polyline points="9 22 9 12 15 12 15 22"/>
+                        </svg>
+                    </div>
+                    <h3>Refuge</h3>
+                    <p>A safe space where all are welcome to find rest and peace.</p>
+                </div>
+                <div class="value-card fade-in">
+                    <div class="value-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                        </svg>
+                    </div>
+                    <h3>Healing & Restoration</h3>
+                    <p>Nurturing wholeness in mind, body, and spirit.</p>
+                </div>
+                <div class="value-card fade-in">
+                    <div class="value-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="10"/>
+                            <line x1="12" y1="8" x2="12" y2="12"/>
+                            <line x1="12" y1="16" x2="12.01" y2="16"/>
+                            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                        </svg>
+                    </div>
+                    <h3>Empowerment & Discipleship</h3>
+                    <p>Equipping individuals to grow and serve others.</p>
+                </div>
+                <div class="value-card fade-in">
+                    <div class="value-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                    </div>
+                    <h3>Community & Unity</h3>
+                    <p>Walking together in love and mutual support.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs -->
+    <section id="programs" class="programs">
+        <div class="section-container">
+            <div class="section-header">
+                <h2>Our Programs</h2>
+                <p class="section-intro">Comprehensive support for your journey toward healing and purpose.</p>
+            </div>
+            <div class="programs-content">
+                <div class="program-card fade-in">
+                    <h3>Healing & Restoration</h3>
+                    <p>Our flagship program provides a nurturing environment where individuals can process grief, trauma, and life transitions. Through one-on-one counseling, group sessions, and spiritual guidance, we walk alongside you on your path to wholeness.</p>
+                </div>
+                <div class="program-features fade-in">
+                    <div class="feature">
+                        <div class="feature-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4>Individual Counseling</h4>
+                            <p>Private sessions tailored to your unique journey</p>
+                        </div>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
+                                <line x1="9" y1="9" x2="9.01" y2="9"/>
+                                <line x1="15" y1="9" x2="15.01" y2="9"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4>Support Groups</h4>
+                            <p>Connect with others who understand your experience</p>
+                        </div>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4>Spiritual Guidance</h4>
+                            <p>Faith-based support for lasting transformation</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="blog">
+        <div class="section-container">
+            <div class="section-header">
+                <h2>From Our Blog</h2>
+                <p class="section-intro">Insights, encouragement, and resources for your healing journey.</p>
+            </div>
+            <div class="blog-grid">
+                <!-- Blog Post 1 -->
+                <a href="blog.html" class="blog-card-link">
+                    <article class="blog-card fade-in">
+                        <div class="blog-image">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                            </svg>
+                        </div>
+                        <div class="blog-content">
+                            <span class="blog-date">December 1, 2024</span>
+                            <h3>Finding Hope in the Midst of Grief</h3>
+                            <p>Grief can feel overwhelming, but there are steps you can take to begin your healing journey...</p>
+                            <span class="blog-link">
+                                Read More
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <line x1="5" y1="12" x2="19" y2="12"/>
+                                    <polyline points="12 5 19 12 12 19"/>
+                                </svg>
+                            </span>
+                        </div>
+                    </article>
+                </a>
+
+                <!-- Blog Post 2 -->
+                <a href="blog.html" class="blog-card-link">
+                    <article class="blog-card fade-in">
+                        <div class="blog-image">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                <circle cx="9" cy="7" r="4"/>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                            </svg>
+                        </div>
+                        <div class="blog-content">
+                            <span class="blog-date">November 15, 2024</span>
+                            <h3>The Power of Community in Healing</h3>
+                            <p>We were never meant to walk through our darkest moments alone. Discover the strength found in community...</p>
+                            <span class="blog-link">
+                                Read More
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <line x1="5" y1="12" x2="19" y2="12"/>
+                                    <polyline points="12 5 19 12 12 19"/>
+                                </svg>
+                            </span>
+                        </div>
+                    </article>
+                </a>
+
+                <!-- Blog Post 3 -->
+                <a href="blog.html" class="blog-card-link">
+                    <article class="blog-card fade-in">
+                        <div class="blog-image">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                            </svg>
+                        </div>
+                        <div class="blog-content">
+                            <span class="blog-date">November 1, 2024</span>
+                            <h3>Scripture for the Brokenhearted</h3>
+                            <p>God's Word offers comfort and hope. Here are passages that speak to those walking through pain...</p>
+                            <span class="blog-link">
+                                Read More
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <line x1="5" y1="12" x2="19" y2="12"/>
+                                    <polyline points="12 5 19 12 12 19"/>
+                                </svg>
+                            </span>
+                        </div>
+                    </article>
+                </a>
+            </div>
+            <div class="view-all-btn">
+                <a href="blog.html" class="cta-button outline">View All Posts</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="section-container">
+            <div class="section-header">
+                <h2>Begin Your Journey</h2>
+            </div>
+            <p>You don't have to walk this path alone. Reach out today and take the first step toward healing and restoration.</p>
+            <form class="contact-form" id="contactForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <input type="text" name="firstName" placeholder="First Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="lastName" placeholder="Last Name" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="Email Address" required>
+                </div>
+                <div class="form-group">
+                    <textarea name="message" placeholder="How can we help you?" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="cta-button light">Send Message</button>
+                <div class="form-message" id="contactFormMessage"></div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-logo">Adullam Mission House</div>
+        <p>A Safe Haven for the Broken to Be Restored and Launched</p>
+        <p style="margin-top: 1.5rem;">© 2024 Adullam Mission House. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Fade in on scroll
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        fadeElements.forEach(el => observer.observe(el));
+
+        // Smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Contact form handler
+        const contactForm = document.getElementById('contactForm');
+        const contactFormMessage = document.getElementById('contactFormMessage');
+
+        contactForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Sending...';
+            submitBtn.disabled = true;
+            contactFormMessage.className = 'form-message';
+            contactFormMessage.textContent = '';
+
+            const formData = {
+                firstName: contactForm.firstName.value,
+                lastName: contactForm.lastName.value,
+                email: contactForm.email.value,
+                message: contactForm.message.value,
+                formType: 'contact'
+            };
+
+            try {
+                const response = await fetch('/api/contact', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(formData)
+                });
+
+                if (response.ok) {
+                    contactFormMessage.className = 'form-message success';
+                    contactFormMessage.textContent = 'Thank you! Your message has been sent.';
+                    contactForm.reset();
+                } else {
+                    throw new Error('Failed to send');
+                }
+            } catch (error) {
+                contactFormMessage.className = 'form-message error';
+                contactFormMessage.textContent = 'Sorry, something went wrong. Please try again.';
+            } finally {
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }
+        });
+    </script>
+</body>
+</html>

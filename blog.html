@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | Adullam Mission House</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Lato:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --terracotta: #A65D37;
+            --terracotta-dark: #8B4D2E;
+            --brown-deep: #5C4033;
+            --sage-green: #7A9A6B;
+            --olive-green: #5C7A4E;
+            --cream: #FBF9F6;
+            --warm-white: #FFFCF8;
+            --stone: #E8DDD4;
+            --stone-light: #F3EDE7;
+            --text-dark: #3D3229;
+            --text-muted: #6B5D52;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: var(--warm-white);
+            color: var(--text-dark);
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 500;
+            line-height: 1.3;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(251, 249, 246, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 2rem;
+            border-bottom: 1px solid var(--stone);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            color: var(--terracotta);
+            text-decoration: none;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--terracotta);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--terracotta);
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .mobile-menu span {
+            width: 25px;
+            height: 2px;
+            background: var(--terracotta);
+            transition: 0.3s;
+        }
+
+        /* Page Header */
+        .page-header {
+            padding: 10rem 2rem 4rem;
+            background: linear-gradient(180deg, var(--warm-white) 0%, var(--stone-light) 100%);
+            text-align: center;
+            position: relative;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(ellipse at 20% 80%, rgba(122, 154, 107, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 20%, rgba(166, 93, 55, 0.06) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .page-header h1 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            color: var(--terracotta);
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        /* Blog Content */
+        .blog-content {
+            padding: 4rem 2rem;
+            background: var(--cream);
+        }
+
+        .blog-container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* Featured Post */
+        .featured-post {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 3rem;
+            margin-bottom: 4rem;
+            background: var(--warm-white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+        }
+
+        .featured-image {
+            min-height: 400px;
+            background: linear-gradient(135deg, var(--sage-green) 0%, var(--olive-green) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .featured-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 30% 70%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 70% 30%, rgba(0, 0, 0, 0.1) 0%, transparent 50%);
+        }
+
+        .featured-image svg {
+            width: 80px;
+            height: 80px;
+            stroke: white;
+            opacity: 0.3;
+        }
+
+        .featured-badge {
+            position: absolute;
+            top: 1.5rem;
+            left: 1.5rem;
+            background: var(--terracotta);
+            color: white;
+            padding: 0.4rem 1rem;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-radius: 2px;
+        }
+
+        .featured-content {
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .featured-content .blog-date {
+            font-size: 0.9rem;
+            color: var(--sage-green);
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .featured-content h2 {
+            font-size: 2rem;
+            color: var(--brown-deep);
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .featured-content p {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .read-more {
+            color: var(--terracotta);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: gap 0.3s ease;
+        }
+
+        .read-more:hover {
+            gap: 0.8rem;
+        }
+
+        .read-more svg {
+            width: 18px;
+            height: 18px;
+            stroke: currentColor;
+        }
+
+        /* Blog Grid */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .blog-card {
+            background: var(--warm-white);
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+
+        .blog-image {
+            height: 200px;
+            background: linear-gradient(135deg, var(--stone) 0%, var(--stone-light) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .blog-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 30% 70%, rgba(122, 154, 107, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 70% 30%, rgba(166, 93, 55, 0.15) 0%, transparent 50%);
+        }
+
+        .blog-image svg {
+            width: 48px;
+            height: 48px;
+            stroke: var(--terracotta);
+            opacity: 0.4;
+        }
+
+        .blog-card-content {
+            padding: 1.5rem;
+        }
+
+        .blog-category {
+            display: inline-block;
+            font-size: 0.75rem;
+            color: var(--sage-green);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .blog-date {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .blog-card h3 {
+            font-size: 1.3rem;
+            color: var(--brown-deep);
+            margin-bottom: 0.8rem;
+            line-height: 1.4;
+        }
+
+        .blog-card p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .blog-link {
+            color: var(--terracotta);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: gap 0.3s ease;
+        }
+
+        .blog-link:hover {
+            gap: 0.8rem;
+        }
+
+        .blog-link svg {
+            width: 16px;
+            height: 16px;
+            stroke: currentColor;
+        }
+
+        /* Categories Sidebar - For future use */
+        .sidebar {
+            margin-top: 4rem;
+            padding-top: 3rem;
+            border-top: 1px solid var(--stone);
+        }
+
+        .categories-section h3 {
+            font-size: 1.4rem;
+            color: var(--brown-deep);
+            margin-bottom: 1.5rem;
+        }
+
+        .categories-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .category-tag {
+            background: var(--warm-white);
+            color: var(--text-muted);
+            padding: 0.5rem 1.2rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 1px solid var(--stone);
+        }
+
+        .category-tag:hover {
+            background: var(--terracotta);
+            color: white;
+            border-color: var(--terracotta);
+        }
+
+        /* Newsletter Section */
+        .newsletter {
+            margin-top: 4rem;
+            padding: 3rem;
+            background: linear-gradient(135deg, var(--brown-deep) 0%, var(--terracotta-dark) 100%);
+            border-radius: 8px;
+            text-align: center;
+            color: white;
+        }
+
+        .newsletter h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .newsletter p {
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 1rem;
+            max-width: 450px;
+            margin: 0 auto;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 1rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-family: inherit;
+        }
+
+        .newsletter-form input:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(255,255,255,0.3);
+        }
+
+        .newsletter-form button {
+            background: var(--warm-white);
+            color: var(--terracotta);
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 4px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .newsletter-form button:hover {
+            background: var(--cream);
+            transform: translateY(-2px);
+        }
+
+        .newsletter-form button:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+
+        .form-message {
+            margin-top: 1rem;
+            padding: 0.8rem;
+            border-radius: 4px;
+            text-align: center;
+            display: none;
+        }
+
+        .form-message.success {
+            display: block;
+            background: rgba(122, 154, 107, 0.3);
+            color: white;
+        }
+
+        .form-message.error {
+            display: block;
+            background: rgba(220, 53, 69, 0.3);
+            color: white;
+        }
+
+        /* Pagination */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 4rem;
+        }
+
+        .pagination a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            border-radius: 4px;
+            text-decoration: none;
+            color: var(--text-muted);
+            background: var(--warm-white);
+            border: 1px solid var(--stone);
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .pagination a:hover,
+        .pagination a.active {
+            background: var(--terracotta);
+            color: white;
+            border-color: var(--terracotta);
+        }
+
+        .pagination a svg {
+            width: 18px;
+            height: 18px;
+            stroke: currentColor;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--brown-deep);
+            color: var(--stone);
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            color: var(--warm-white);
+            margin-bottom: 1rem;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        footer a {
+            color: var(--sage-green);
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .featured-post {
+                grid-template-columns: 1fr;
+            }
+
+            .featured-image {
+                min-height: 300px;
+            }
+
+            .blog-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .newsletter-form button {
+                width: 100%;
+            }
+        }
+
+        /* Fade in animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="adullam-mission-house.html" class="nav-logo">Adullam Mission House</a>
+            <ul class="nav-links">
+                <li><a href="adullam-mission-house.html#about">About</a></li>
+                <li><a href="adullam-mission-house.html#mission">Mission</a></li>
+                <li><a href="adullam-mission-house.html#values">Values</a></li>
+                <li><a href="adullam-mission-house.html#programs">Programs</a></li>
+                <li><a href="blog.html" class="active">Blog</a></li>
+                <li><a href="adullam-mission-house.html#contact">Contact</a></li>
+            </ul>
+            <div class="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <h1>Our Blog</h1>
+        <p>Insights, encouragement, and resources for your healing journey.</p>
+    </header>
+
+    <!-- Blog Content -->
+    <main class="blog-content">
+        <div class="blog-container">
+            
+            <!-- Featured Post -->
+            <article class="featured-post fade-in">
+                <div class="featured-image">
+                    <span class="featured-badge">Featured</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                    </svg>
+                </div>
+                <div class="featured-content">
+                    <span class="blog-date">December 1, 2024</span>
+                    <h2>Finding Hope in the Midst of Grief: A Journey Toward Healing</h2>
+                    <p>Grief can feel overwhelming, like waves that crash over us without warning. But even in our darkest moments, there is hope. At Adullam Mission House, we've walked alongside countless individuals as they navigate the difficult terrain of loss...</p>
+                    <a href="#" class="read-more">
+                        Continue Reading
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="5" y1="12" x2="19" y2="12"/>
+                            <polyline points="12 5 19 12 12 19"/>
+                        </svg>
+                    </a>
+                </div>
+            </article>
+
+            <!-- Blog Grid -->
+            <div class="blog-grid">
+                <!-- Post 1 -->
+                <article class="blog-card fade-in">
+                    <div class="blog-image">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                    </div>
+                    <div class="blog-card-content">
+                        <span class="blog-category">Community</span>
+                        <span class="blog-date">November 15, 2024</span>
+                        <h3>The Power of Community in Healing</h3>
+                        <p>We were never meant to walk through our darkest moments alone. Discover the strength found in community...</p>
+                        <a href="#" class="blog-link">
+                            Read More
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="5" y1="12" x2="19" y2="12"/>
+                                <polyline points="12 5 19 12 12 19"/>
+                            </svg>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Post 2 -->
+                <article class="blog-card fade-in">
+                    <div class="blog-image">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                        </svg>
+                    </div>
+                    <div class="blog-card-content">
+                        <span class="blog-category">Scripture</span>
+                        <span class="blog-date">November 1, 2024</span>
+                        <h3>Scripture for the Brokenhearted</h3>
+                        <p>God's Word offers comfort and hope. Here are passages that speak to those walking through pain...</p>
+                        <a href="#" class="blog-link">
+                            Read More
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="5" y1="12" x2="19" y2="12"/>
+                                <polyline points="12 5 19 12 12 19"/>
+                            </svg>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Post 3 -->
+                <article class="blog-card fade-in">
+                    <div class="blog-image">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M12 6v6l4 2"/>
+                        </svg>
+                    </div>
+                    <div class="blog-card-content">
+                        <span class="blog-category">Restoration</span>
+                        <span class="blog-date">October 20, 2024</span>
+                        <h3>Understanding the Seasons of Grief</h3>
+                        <p>Grief doesn't follow a timeline. Learn to navigate the different seasons of loss with grace...</p>
+                        <a href="#" class="blog-link">
+                            Read More
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="5" y1="12" x2="19" y2="12"/>
+                                <polyline points="12 5 19 12 12 19"/>
+                            </svg>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Post 4 -->
+                <article class="blog-card fade-in">
+                    <div class="blog-image">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                            <path d="M2 17l10 5 10-5"/>
+                            <path d="M2 12l10 5 10-5"/>
+                        </svg>
+                    </div>
+                    <div class="blog-card-content">
+                        <span class="blog-category">Purpose</span>
+                        <span class="blog-date">October 5, 2024</span>
+                        <h3>From Pain to Purpose</h3>
+                        <p>Your deepest wounds can become your greatest ministry. Discover how God redeems our suffering...</p>
+                        <a href="#" class="blog-link">
+                            Read More
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="5" y1="12" x2="19" y2="12"/>
+                                <polyline points="12 5 19 12 12 19"/>
+                            </svg>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Post 5 -->
+                <article class="blog-card fade-in">
+                    <div class="blog-image">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M18 8h1a4 4 0 0 1 0 8h-1"/>
+                            <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/>
+                            <line x1="6" y1="1" x2="6" y2="4"/>
+                            <line x1="10" y1="1" x2="10" y2="4"/>
+                            <line x1="14" y1="1" x2="14" y2="4"/>
+                        </svg>
+                    </div>
+                    <div class="blog-card-content">
+                        <span class="blog-category">Self-Care</span>
+                        <span class="blog-date">September 22, 2024</span>
+                        <h3>Practicing Self-Compassion During Grief</h3>
+                        <p>Be gentle with yourself. Learn practical ways to show yourself grace during difficult times...</p>
+                        <a href="#" class="blog-link">
+                            Read More
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="5" y1="12" x2="19" y2="12"/>
+                                <polyline points="12 5 19 12 12 19"/>
+                            </svg>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Post 6 -->
+                <article class="blog-card fade-in">
+                    <div class="blog-image">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                            <polyline points="9 22 9 12 15 12 15 22"/>
+                        </svg>
+                    </div>
+                    <div class="blog-card-content">
+                        <span class="blog-category">Refuge</span>
+                        <span class="blog-date">September 10, 2024</span>
+                        <h3>The Cave of Adullam: A Place of Refuge</h3>
+                        <p>Understanding the biblical significance of Adullam and what it means for us today...</p>
+                        <a href="#" class="blog-link">
+                            Read More
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="5" y1="12" x2="19" y2="12"/>
+                                <polyline points="12 5 19 12 12 19"/>
+                            </svg>
+                        </a>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Newsletter -->
+            <div class="newsletter">
+                <h3>Stay Connected</h3>
+                <p>Subscribe to receive encouragement, updates, and new blog posts delivered to your inbox.</p>
+                <form class="newsletter-form" id="newsletterForm">
+                    <input type="email" name="email" placeholder="Enter your email address" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+                <div class="form-message" id="newsletterFormMessage"></div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-logo">Adullam Mission House</div>
+        <p>A Safe Haven for the Broken to Be Restored and Launched</p>
+        <p style="margin-top: 1.5rem;">© 2024 Adullam Mission House. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Fade in on scroll
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        fadeElements.forEach(el => observer.observe(el));
+
+        // Newsletter form handler
+        const newsletterForm = document.getElementById('newsletterForm');
+        const newsletterFormMessage = document.getElementById('newsletterFormMessage');
+
+        newsletterForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const submitBtn = newsletterForm.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Subscribing...';
+            submitBtn.disabled = true;
+            newsletterFormMessage.className = 'form-message';
+            newsletterFormMessage.textContent = '';
+
+            const formData = {
+                email: newsletterForm.email.value,
+                formType: 'newsletter'
+            };
+
+            try {
+                const response = await fetch('/api/contact', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(formData)
+                });
+
+                if (response.ok) {
+                    newsletterFormMessage.className = 'form-message success';
+                    newsletterFormMessage.textContent = 'Thank you for subscribing!';
+                    newsletterForm.reset();
+                } else {
+                    throw new Error('Failed to subscribe');
+                }
+            } catch (error) {
+                newsletterFormMessage.className = 'form-message error';
+                newsletterFormMessage.textContent = 'Sorry, something went wrong. Please try again.';
+            } finally {
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }
+        });
+    </script>
+</body>
+</html>
