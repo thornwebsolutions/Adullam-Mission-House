@@ -15,7 +15,13 @@ export default async function handler(req, res) {
   // Set CORS headers
   res.setHeader('Access-Control-Allow-Origin', '*');
 
-  const { firstName, lastName, email, message, formType } = req.body;
+  const { firstName, lastName, email, message, formType, website } = req.body;
+
+  // Honeypot check - if this field has a value, it's likely a bot
+  if (website) {
+    // Silently accept but don't send email
+    return res.status(200).json({ success: true, message: 'Email sent successfully' });
+  }
 
   // Build email content based on form type
   let subject, htmlContent;

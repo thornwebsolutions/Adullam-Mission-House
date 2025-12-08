@@ -4,171 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog | Adullam Mission House</title>
-    <link rel="icon" type="image/png" href="../assets/favicon.png">
-    <link rel="apple-touch-icon" href="../assets/favicon.png">
+    <meta name="description" content="Insights, encouragement, and resources for your healing journey. Read our blog for faith-based guidance on grief, restoration, and finding hope.">
+    <link rel="canonical" href="https://adullammissionhouse.com/blog">
+
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Blog | Adullam Mission House">
+    <meta property="og:description" content="Insights, encouragement, and resources for your healing journey. Read our blog for faith-based guidance on grief, restoration, and finding hope.">
+    <meta property="og:image" content="https://adullammissionhouse.com/assets/og-image.png">
+    <meta property="og:url" content="https://adullammissionhouse.com/blog">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Adullam Mission House">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/assets/favicon.png">
+    <link rel="apple-touch-icon" href="/assets/favicon.png">
+
+    <!-- Google Fonts with Preload -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Lato:wght@300;400;500&display=swap" as="style">
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Lato:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="/css/styles.css">
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QHEHW3YHQR"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-QHEHW3YHQR');
+    </script>
+
     <style>
-        :root {
-            --terracotta: #A65D37;
-            --terracotta-dark: #8B4D2E;
-            --brown-deep: #5C4033;
-            --sage-green: #7A9A6B;
-            --olive-green: #5C7A4E;
-            --cream: #FBF9F6;
-            --warm-white: #FFFCF8;
-            --stone: #E8DDD4;
-            --stone-light: #F3EDE7;
-            --text-dark: #3D3229;
-            --text-muted: #6B5D52;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Lato', sans-serif;
-            background-color: var(--warm-white);
-            color: var(--text-dark);
-            line-height: 1.7;
-            font-weight: 300;
-        }
-
-        h1, h2, h3, h4 {
-            font-family: 'Cormorant Garamond', serif;
-            font-weight: 500;
-            line-height: 1.3;
-        }
-
-        /* Cave Vignette Effect */
-        .cave-vignette {
-            position: fixed;
-            inset: 0;
-            pointer-events: none;
-            box-shadow: inset 0 0 150px rgba(92, 64, 51, 0.12);
-            z-index: 9999;
-        }
-
-        /* Vine Decorations */
-        .vine-decoration {
-            position: absolute;
-            pointer-events: none;
-            z-index: 2;
-        }
-        .vine-decoration svg { width: 100%; height: 100%; }
-        .vine-header-left {
-            left: 0;
-            top: 60px;
-            width: 100px;
-            height: 200px;
-            opacity: 0.10;
-        }
-        .vine-header-right {
-            right: 0;
-            top: 60px;
-            width: 100px;
-            height: 200px;
-            opacity: 0.10;
-            transform: scaleX(-1);
-        }
-
-        @media (max-width: 768px) {
-            .cave-vignette {
-                box-shadow: inset 0 0 80px rgba(92, 64, 51, 0.08);
-            }
-        }
-
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: rgba(251, 249, 246, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            padding: 1rem 2rem;
-            border-bottom: 1px solid var(--stone);
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .nav-logo {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.4rem;
-            color: var(--terracotta);
-            text-decoration: none;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2.5rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            font-weight: 400;
-            letter-spacing: 0.5px;
-            transition: color 0.3s ease;
-            position: relative;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 1px;
-            background: var(--terracotta);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover,
-        .nav-links a.active {
-            color: var(--terracotta);
-        }
-
-        .nav-links a:hover::after,
-        .nav-links a.active::after {
-            width: 100%;
-        }
-
-        .mobile-menu {
-            display: none;
-            flex-direction: column;
-            gap: 5px;
-            cursor: pointer;
-            padding: 5px;
-        }
-
-        .mobile-menu span {
-            width: 25px;
-            height: 2px;
-            background: var(--terracotta);
-            transition: 0.3s;
-        }
-
-        /* Page Header */
+        /* Blog-specific styles */
         .page-header {
             padding: 10rem 2rem 4rem;
             background: linear-gradient(180deg, var(--warm-white) 0%, var(--stone-light) 100%);
@@ -183,7 +53,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: 
+            background:
                 radial-gradient(ellipse at 20% 80%, rgba(122, 154, 107, 0.08) 0%, transparent 50%),
                 radial-gradient(ellipse at 80% 20%, rgba(166, 93, 55, 0.06) 0%, transparent 50%);
             pointer-events: none;
@@ -204,7 +74,6 @@
             position: relative;
         }
 
-        /* Blog Content */
         .blog-content {
             padding: 4rem 2rem;
             background: var(--cream);
@@ -243,7 +112,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: 
+            background:
                 radial-gradient(circle at 30% 70%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
                 radial-gradient(circle at 70% 30%, rgba(0, 0, 0, 0.1) 0%, transparent 50%);
         }
@@ -317,56 +186,6 @@
             stroke: currentColor;
         }
 
-        /* Blog Grid */
-        .blog-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-        }
-
-        .blog-card {
-            background: var(--warm-white);
-            border-radius: 4px;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .blog-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-        }
-
-        .blog-image {
-            height: 200px;
-            background: linear-gradient(135deg, var(--stone) 0%, var(--stone-light) 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .blog-image::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(circle at 30% 70%, rgba(122, 154, 107, 0.2) 0%, transparent 50%),
-                radial-gradient(circle at 70% 30%, rgba(166, 93, 55, 0.15) 0%, transparent 50%);
-        }
-
-        .blog-image svg {
-            width: 48px;
-            height: 48px;
-            stroke: var(--terracotta);
-            opacity: 0.4;
-        }
-
         .blog-card-content {
             padding: 1.5rem;
         }
@@ -379,82 +198,6 @@
             letter-spacing: 1px;
             margin-bottom: 0.5rem;
             font-weight: 500;
-        }
-
-        .blog-date {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            margin-bottom: 0.5rem;
-        }
-
-        .blog-card h3 {
-            font-size: 1.3rem;
-            color: var(--brown-deep);
-            margin-bottom: 0.8rem;
-            line-height: 1.4;
-        }
-
-        .blog-card p {
-            font-size: 0.95rem;
-            color: var(--text-muted);
-            margin-bottom: 1rem;
-        }
-
-        .blog-link {
-            color: var(--terracotta);
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: gap 0.3s ease;
-        }
-
-        .blog-link:hover {
-            gap: 0.8rem;
-        }
-
-        .blog-link svg {
-            width: 16px;
-            height: 16px;
-            stroke: currentColor;
-        }
-
-        /* Categories Sidebar - For future use */
-        .sidebar {
-            margin-top: 4rem;
-            padding-top: 3rem;
-            border-top: 1px solid var(--stone);
-        }
-
-        .categories-section h3 {
-            font-size: 1.4rem;
-            color: var(--brown-deep);
-            margin-bottom: 1.5rem;
-        }
-
-        .categories-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.8rem;
-        }
-
-        .category-tag {
-            background: var(--warm-white);
-            color: var(--text-muted);
-            padding: 0.5rem 1.2rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            border: 1px solid var(--stone);
-        }
-
-        .category-tag:hover {
-            background: var(--terracotta);
-            color: white;
-            border-color: var(--terracotta);
         }
 
         /* Newsletter Section */
@@ -523,63 +266,6 @@
             cursor: not-allowed;
         }
 
-        .form-message {
-            margin-top: 1rem;
-            padding: 0.8rem;
-            border-radius: 4px;
-            text-align: center;
-            display: none;
-        }
-
-        .form-message.success {
-            display: block;
-            background: rgba(122, 154, 107, 0.3);
-            color: white;
-        }
-
-        .form-message.error {
-            display: block;
-            background: rgba(220, 53, 69, 0.3);
-            color: white;
-        }
-
-        /* Pagination */
-        .pagination {
-            display: flex;
-            justify-content: center;
-            gap: 0.5rem;
-            margin-top: 4rem;
-        }
-
-        .pagination a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 45px;
-            height: 45px;
-            border-radius: 4px;
-            text-decoration: none;
-            color: var(--text-muted);
-            background: var(--warm-white);
-            border: 1px solid var(--stone);
-            font-size: 0.95rem;
-            transition: all 0.3s ease;
-        }
-
-        .pagination a:hover,
-        .pagination a.active {
-            background: var(--terracotta);
-            color: white;
-            border-color: var(--terracotta);
-        }
-
-        .pagination a svg {
-            width: 18px;
-            height: 18px;
-            stroke: currentColor;
-        }
-
-        /* Responsive */
         @media (max-width: 992px) {
             .featured-post {
                 grid-template-columns: 1fr;
@@ -588,25 +274,9 @@
             .featured-image {
                 min-height: 300px;
             }
-
-            .blog-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
         }
 
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .mobile-menu {
-                display: flex;
-            }
-
-            .blog-grid {
-                grid-template-columns: 1fr;
-            }
-
             .newsletter-form {
                 flex-direction: column;
             }
@@ -614,43 +284,6 @@
             .newsletter-form button {
                 width: 100%;
             }
-
-            .nav-links.active {
-                display: flex;
-                flex-direction: column;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: rgba(251, 249, 246, 0.98);
-                padding: 1rem 2rem;
-                border-bottom: 1px solid var(--stone);
-                gap: 1rem;
-            }
-
-            .mobile-menu.active span:nth-child(1) {
-                transform: rotate(45deg) translate(5px, 5px);
-            }
-
-            .mobile-menu.active span:nth-child(2) {
-                opacity: 0;
-            }
-
-            .mobile-menu.active span:nth-child(3) {
-                transform: rotate(-45deg) translate(5px, -5px);
-            }
-        }
-
-        /* Fade in animation */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
         }
     </style>
 </head>
@@ -658,47 +291,11 @@
     <!-- Cave Vignette Overlay -->
     <div class="cave-vignette"></div>
 
-    <!-- Navigation -->
-    <nav>
-        <div class="nav-container">
-            <a href="/" class="nav-logo">Adullam Mission House</a>
-            <ul class="nav-links">
-                <li><a href="/#about">About</a></li>
-                <li><a href="/#mission">Mission</a></li>
-                <li><a href="/#values">Values</a></li>
-                <li><a href="/#programs">Programs</a></li>
-                <li><a href="/blog" class="active">Blog</a></li>
-                <li><a href="/#contact">Contact</a></li>
-            </ul>
-            <div class="mobile-menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-    </nav>
+    <!-- Header Component -->
+    <site-header></site-header>
 
     <!-- Page Header -->
     <header class="page-header">
-        <!-- Vine Decorations -->
-        <div class="vine-decoration vine-header-left">
-            <svg viewBox="0 0 100 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M-5 0 Q20 30 15 60 Q10 100 30 140 Q40 180 20 200" stroke="#5C7A4E" stroke-width="2" fill="none"/>
-                <ellipse cx="18" cy="40" rx="9" ry="4" fill="#7A9A6B" transform="rotate(-25 18 40)"/>
-                <ellipse cx="15" cy="85" rx="8" ry="4" fill="#5C7A4E" transform="rotate(15 15 85)"/>
-                <ellipse cx="28" cy="125" rx="9" ry="4" fill="#7A9A6B" transform="rotate(-10 28 125)"/>
-                <ellipse cx="25" cy="165" rx="8" ry="4" fill="#5C7A4E" transform="rotate(20 25 165)"/>
-            </svg>
-        </div>
-        <div class="vine-decoration vine-header-right">
-            <svg viewBox="0 0 100 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M-5 0 Q20 30 15 60 Q10 100 30 140 Q40 180 20 200" stroke="#5C7A4E" stroke-width="2" fill="none"/>
-                <ellipse cx="18" cy="40" rx="9" ry="4" fill="#7A9A6B" transform="rotate(-25 18 40)"/>
-                <ellipse cx="15" cy="85" rx="8" ry="4" fill="#5C7A4E" transform="rotate(15 15 85)"/>
-                <ellipse cx="28" cy="125" rx="9" ry="4" fill="#7A9A6B" transform="rotate(-10 28 125)"/>
-                <ellipse cx="25" cy="165" rx="8" ry="4" fill="#5C7A4E" transform="rotate(20 25 165)"/>
-            </svg>
-        </div>
         <h1>Our Blog</h1>
         <p>Insights, encouragement, and resources for your healing journey.</p>
     </header>
@@ -706,7 +303,7 @@
     <!-- Blog Content -->
     <main class="blog-content">
         <div class="blog-container">
-            
+
             <!-- Featured Post -->
             <article class="featured-post fade-in">
                 <div class="featured-image">
@@ -908,48 +505,16 @@
 
     <!-- Footer Component -->
     <site-footer></site-footer>
-    <script src="/components/footer.js"></script>
 
+    <!-- Scripts -->
+    <script src="/js/header.js"></script>
+    <script src="/js/footer.js"></script>
+    <script src="/js/main.js"></script>
     <script>
-        // Mobile menu toggle
-        const mobileMenu = document.querySelector('.mobile-menu');
-        const navLinks = document.querySelector('.nav-links');
-
-        mobileMenu.addEventListener('click', () => {
-            mobileMenu.classList.toggle('active');
-            navLinks.classList.toggle('active');
-        });
-
-        // Close menu when a link is clicked
-        navLinks.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.remove('active');
-                navLinks.classList.remove('active');
-            });
-        });
-
-        // Fade in on scroll
-        const fadeElements = document.querySelectorAll('.fade-in');
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        });
-
-        fadeElements.forEach(el => observer.observe(el));
-
         // Blog card click handlers - make entire card clickable
         document.querySelectorAll('.blog-grid .blog-card').forEach(card => {
             card.addEventListener('click', function(e) {
-                // Don't navigate if clicking the link itself (let it handle naturally)
                 if (e.target.closest('.blog-link')) return;
-
                 const link = card.querySelector('.blog-link');
                 if (link) {
                     window.location.href = link.getAttribute('href');
@@ -961,43 +526,45 @@
         const newsletterForm = document.getElementById('newsletterForm');
         const newsletterFormMessage = document.getElementById('newsletterFormMessage');
 
-        newsletterForm.addEventListener('submit', async function(e) {
-            e.preventDefault();
+        if (newsletterForm) {
+            newsletterForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
 
-            const submitBtn = newsletterForm.querySelector('button[type="submit"]');
-            const originalText = submitBtn.textContent;
-            submitBtn.textContent = 'Subscribing...';
-            submitBtn.disabled = true;
-            newsletterFormMessage.className = 'form-message';
-            newsletterFormMessage.textContent = '';
+                const submitBtn = newsletterForm.querySelector('button[type="submit"]');
+                const originalText = submitBtn.textContent;
+                submitBtn.textContent = 'Subscribing...';
+                submitBtn.disabled = true;
+                newsletterFormMessage.className = 'form-message';
+                newsletterFormMessage.textContent = '';
 
-            const formData = {
-                email: newsletterForm.email.value,
-                formType: 'newsletter'
-            };
+                const formData = {
+                    email: newsletterForm.email.value,
+                    formType: 'newsletter'
+                };
 
-            try {
-                const response = await fetch('/api/contact', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(formData)
-                });
+                try {
+                    const response = await fetch('/api/contact', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(formData)
+                    });
 
-                if (response.ok) {
-                    newsletterFormMessage.className = 'form-message success';
-                    newsletterFormMessage.textContent = 'Thank you for subscribing!';
-                    newsletterForm.reset();
-                } else {
-                    throw new Error('Failed to subscribe');
+                    if (response.ok) {
+                        newsletterFormMessage.className = 'form-message success';
+                        newsletterFormMessage.textContent = 'Thank you for subscribing!';
+                        newsletterForm.reset();
+                    } else {
+                        throw new Error('Failed to subscribe');
+                    }
+                } catch (error) {
+                    newsletterFormMessage.className = 'form-message error';
+                    newsletterFormMessage.textContent = 'Sorry, something went wrong. Please try again.';
+                } finally {
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
                 }
-            } catch (error) {
-                newsletterFormMessage.className = 'form-message error';
-                newsletterFormMessage.textContent = 'Sorry, something went wrong. Please try again.';
-            } finally {
-                submitBtn.textContent = originalText;
-                submitBtn.disabled = false;
-            }
-        });
+            });
+        }
     </script>
 </body>
 </html>

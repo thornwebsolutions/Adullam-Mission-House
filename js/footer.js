@@ -53,12 +53,32 @@ class SiteFooter extends HTMLElement {
                 footer a {
                     color: #7A9A6B;
                     text-decoration: none;
+                    transition: color 0.3s ease;
+                }
+
+                footer a:hover {
+                    color: #A8C4A2;
+                }
+
+                .footer-credit {
+                    margin-top: 1rem;
+                    font-size: 0.85rem;
+                }
+
+                .footer-credit a {
+                    color: #F5F0EB;
+                }
+
+                .footer-credit a:hover {
+                    color: #7A9A6B;
                 }
             </style>
             <footer>
                 <div class="footer-logo">Adullam Mission House</div>
                 <p>A Safe Haven for the Broken to Be Restored and Launched</p>
-                <p style="margin-top: 1.5rem;">&copy; 2025 Adullam Mission House. All rights reserved.</p>
+                <p class="footer-credit" style="margin-top: 1.5rem;">
+                    &copy; 2025 Adullam Mission House. All rights reserved. | <a href="https://thornwebsolutions.com" target="_blank" rel="noopener">Website by Thorn Web Solutions</a>
+                </p>
             </footer>
         `;
     }
