@@ -81,3 +81,35 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+// Calendly Modal functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const modal = document.getElementById('calendlyModal');
+    if (!modal) return;
+
+    const closeBtn = modal.querySelector('.modal-close');
+
+    function closeModal() {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    // Close on button click
+    if (closeBtn) {
+        closeBtn.addEventListener('click', closeModal);
+    }
+
+    // Close on overlay click (not on content)
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+            closeModal();
+        }
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+            closeModal();
+        }
+    });
+});

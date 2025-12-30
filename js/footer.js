@@ -80,7 +80,26 @@ class SiteFooter extends HTMLElement {
                     &copy; 2025 Adullam Mission House. All rights reserved. | <a href="https://thornwebsolutions.com" target="_blank" rel="noopener">Website by Thorn Web Solutions</a>
                 </p>
             </footer>
+
+            <!-- Calendly Modal -->
+            <div id="calendlyModal" class="modal-overlay">
+                <div class="modal-content">
+                    <button class="modal-close" aria-label="Close">&times;</button>
+                    <div class="calendly-inline-widget"
+                         data-url="https://calendly.com/amissionhouse/emotional-wellness-ready-set-go?primary_color=8dcfa5&hide_landing_page_details=1"
+                         style="min-width:320px;height:700px;">
+                    </div>
+                </div>
+            </div>
         `;
+
+        // Load Calendly widget script if not already loaded
+        if (!document.querySelector('script[src*="calendly.com"]')) {
+            const script = document.createElement('script');
+            script.src = 'https://assets.calendly.com/assets/external/widget.js';
+            script.async = true;
+            document.head.appendChild(script);
+        }
     }
 }
 

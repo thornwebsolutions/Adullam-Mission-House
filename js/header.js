@@ -19,13 +19,13 @@ class SiteHeader extends HTMLElement {
                         <li><a href="#values">Values</a></li>
                         <li><a href="#programs">Programs</a></li>
                         <li><a href="#blog">Blog</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#" data-calendly-modal>Contact</a></li>
                         ` : `
                         <li><a href="/">Home</a></li>
                         <li><a href="/#about">About</a></li>
                         <li><a href="/#mission">Mission</a></li>
                         <li><a href="/blog"${isBlogPage ? ' class="active"' : ''}>Blog</a></li>
-                        <li><a href="/#contact">Contact</a></li>
+                        <li><a href="#" data-calendly-modal>Contact</a></li>
                         `}
                     </ul>
                     <div class="mobile-menu" aria-label="Toggle navigation menu">
@@ -60,9 +60,9 @@ class SiteHeader extends HTMLElement {
             });
         }
 
-        // Smooth scroll for anchor links on homepage
+        // Smooth scroll for anchor links on homepage (exclude calendly modal trigger)
         if (window.location.pathname === '/' || window.location.pathname === '/index.html') {
-            this.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            this.querySelectorAll('a[href^="#"]:not([data-calendly-modal])').forEach(anchor => {
                 anchor.addEventListener('click', function(e) {
                     e.preventDefault();
                     const target = document.querySelector(this.getAttribute('href'));
@@ -75,6 +75,18 @@ class SiteHeader extends HTMLElement {
                 });
             });
         }
+
+        // Calendly modal trigger
+        this.querySelectorAll('[data-calendly-modal]').forEach(trigger => {
+            trigger.addEventListener('click', function(e) {
+                e.preventDefault();
+                const modal = document.getElementById('calendlyModal');
+                if (modal) {
+                    modal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }
+            });
+        });
     }
 }
 
