@@ -52,7 +52,7 @@ export default async function handler(req, res) {
       },
       body: JSON.stringify({
         from: 'onboarding@resend.dev',
-        to: 'shaniquawk@gmail.com',
+        to: 'info@amissionhouse.com',
         subject: subject,
         html: htmlContent,
       }),

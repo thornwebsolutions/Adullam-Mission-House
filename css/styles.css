@@ -972,6 +972,17 @@ section {
     stroke-width: 1.5;
 }
 
+a.contact-item {
+    color: var(--warm-white);
+    text-decoration: none;
+    transition: opacity 0.3s ease, color 0.3s ease;
+}
+
+a.contact-item:hover {
+    opacity: 1;
+    color: var(--sage-green);
+}
+
 .cta-button.light {
     background: var(--warm-white);
     color: var(--terracotta);
