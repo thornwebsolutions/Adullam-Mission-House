@@ -51,7 +51,7 @@ export default async function handler(req, res) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        from: 'onboarding@resend.dev',
+        from: 'noreply@amissionhouse.com',
         to: 'info@amissionhouse.com',
         subject: subject,
         html: htmlContent,
