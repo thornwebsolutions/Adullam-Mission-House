@@ -82,6 +82,102 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+// Registration form handler (for pastoral care course page)
+document.addEventListener('DOMContentLoaded', function() {
+    const regForm = document.getElementById('registrationForm');
+    const regFormMessage = document.getElementById('registrationFormMessage');
+
+    if (regForm && regFormMessage) {
+        regForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const submitBtn = regForm.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Submitting...';
+            submitBtn.disabled = true;
+            regFormMessage.className = 'form-message';
+            regFormMessage.textContent = '';
+
+            // Check honeypot field
+            const honeypot = regForm.querySelector('input[name="website"]');
+            if (honeypot && honeypot.value) {
+                regFormMessage.className = 'form-message success';
+                regFormMessage.textContent = 'Thank you! Your application has been submitted.';
+                regForm.reset();
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+                return;
+            }
+
+            // Gather form data
+            const getRadioValue = (name) => {
+                const el = regForm.querySelector(`input[name="${name}"]:checked`);
+                return el ? el.value : '';
+            };
+
+            const formData = {
+                formType: 'registration',
+                firstName: regForm.firstName.value,
+                lastName: regForm.lastName.value,
+                middleName: regForm.middleName.value,
+                maidenName: regForm.maidenName.value,
+                email: regForm.email.value,
+                street: regForm.street.value,
+                city: regForm.city.value,
+                state: regForm.state.value,
+                zip: regForm.zip.value,
+                dayPhone: regForm.dayPhone.value,
+                eveningPhone: regForm.eveningPhone.value,
+                maritalStatus: getRadioValue('maritalStatus'),
+                highSchool: regForm.highSchool.value,
+                hsCity: regForm.hsCity.value,
+                hsGradDate: regForm.hsGradDate.value,
+                college: regForm.college.value,
+                collegeCity: regForm.collegeCity.value,
+                major: regForm.major.value,
+                degree: regForm.degree.value,
+                churchName: regForm.churchName.value,
+                pastorName: regForm.pastorName.value,
+                attendRegularly: getRadioValue('attendRegularly'),
+                isMember: getRadioValue('isMember'),
+                classFormat: getRadioValue('classFormat'),
+                paymentMethod: getRadioValue('paymentMethod')
+            };
+
+            try {
+                const response = await fetch('/api/contact', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(formData)
+                });
+
+                if (response.ok) {
+                    const selectedPayment = formData.paymentMethod;
+                    regFormMessage.className = 'form-message success';
+                    regFormMessage.textContent = 'Thank you! Your application has been submitted successfully. We will be in touch soon.';
+                    regForm.reset();
+
+                    if (selectedPayment === 'PayPal') {
+                        const paypalModal = document.getElementById('paypalModal');
+                        if (paypalModal) {
+                            paypalModal.classList.add('active');
+                            document.body.style.overflow = 'hidden';
+                        }
+                    }
+                } else {
+                    throw new Error('Failed to send');
+                }
+            } catch (error) {
+                regFormMessage.className = 'form-message error';
+                regFormMessage.textContent = 'Sorry, something went wrong. Please try again or email us directly at info@amissionhouse.com.';
+            } finally {
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }
+        });
+    }
+});
+
 // Calendly Modal functionality
 document.addEventListener('DOMContentLoaded', function() {
     const modal = document.getElementById('calendlyModal');

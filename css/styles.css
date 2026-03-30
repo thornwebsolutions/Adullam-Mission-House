@@ -402,6 +402,82 @@ nav {
     animation: fadeInUp 1s ease-out;
 }
 
+/* Hero Split Layout */
+.hero-split {
+    position: relative;
+    z-index: 1;
+    max-width: 1100px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    gap: 3rem;
+    align-items: center;
+    animation: fadeInUp 1s ease-out;
+}
+
+.hero-split-text {
+    text-align: left;
+}
+
+.hero-split-text .hero-logo {
+    margin: 0 0 1.5rem;
+    max-width: 280px;
+}
+
+.hero-split-text h1 {
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    color: var(--terracotta);
+    margin-bottom: 1rem;
+    letter-spacing: 0.5px;
+}
+
+.hero-split-text .hero-description {
+    text-align: left;
+    margin: 0 0 2rem;
+    max-width: none;
+}
+
+.hero-split-video {
+    position: relative;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 12px 40px rgba(92, 64, 51, 0.18);
+    aspect-ratio: 16 / 9;
+}
+
+.hero-split-video iframe {
+    width: 100%;
+    height: 100%;
+    display: block;
+    border-radius: 6px;
+}
+
+@media (max-width: 992px) {
+    .hero-split {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 2.5rem;
+    }
+
+    .hero-split-text {
+        text-align: center;
+    }
+
+    .hero-split-text .hero-logo {
+        margin: 0 auto 1.5rem;
+    }
+
+    .hero-split-text .hero-description {
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-split-text h1 {
+        font-size: clamp(1.5rem, 5vw, 2rem);
+    }
+}
+
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -470,15 +546,15 @@ nav {
 
 .scroll-indicator {
     position: absolute;
-    bottom: 2rem;
+    bottom: 3.5rem;
     left: 50%;
     transform: translateX(-50%);
     animation: bounce 2s infinite;
 }
 
 .scroll-indicator svg {
-    width: 24px;
-    height: 24px;
+    width: 32px;
+    height: 32px;
     stroke: var(--terracotta);
     opacity: 0.6;
 }
@@ -528,6 +604,46 @@ section {
     color: var(--text-muted);
     max-width: 700px;
     margin: 1.5rem auto 0;
+}
+
+/* Welcome Section */
+.welcome {
+    background: var(--cream);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.welcome-content {
+    max-width: 750px;
+    margin: 0 auto;
+}
+
+.welcome-content .hero-logo {
+    margin: 0 auto 1.5rem;
+}
+
+.welcome-content h2 {
+    font-size: clamp(2.2rem, 5vw, 3.2rem);
+    color: var(--terracotta);
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+}
+
+.welcome-tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+    color: var(--olive-green);
+    font-style: italic;
+    margin-bottom: 2rem;
+    font-weight: 400;
+}
+
+.welcome-description {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto 2.5rem;
 }
 
 /* About Section */
@@ -1312,6 +1428,284 @@ a.contact-item:hover {
     width: 16px;
     height: 16px;
     stroke: currentColor;
+}
+
+/* Course Page Styles */
+.course-hero {
+    padding-top: 120px;
+    padding-bottom: 3rem;
+    background: linear-gradient(180deg, var(--warm-white) 0%, var(--stone-light) 100%);
+    text-align: center;
+    position: relative;
+}
+
+.course-hero h1 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--terracotta);
+    max-width: 800px;
+    margin: 0 auto 1rem;
+}
+
+.course-hero .course-subtitle {
+    font-size: 1.15rem;
+    color: var(--text-muted);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.course-details {
+    background: var(--cream);
+    padding: 4rem 2rem;
+}
+
+.course-details .section-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.course-info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.course-info-card {
+    background: var(--warm-white);
+    padding: 2rem;
+    border-radius: 4px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+    border-left: 4px solid var(--terracotta);
+}
+
+.course-info-card h3 {
+    font-size: 1.3rem;
+    color: var(--brown-deep);
+    margin-bottom: 0.5rem;
+}
+
+.course-info-card p {
+    color: var(--text-dark);
+    font-size: 1rem;
+}
+
+.course-description {
+    background: var(--warm-white);
+    padding: 2.5rem;
+    border-radius: 4px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+    margin-bottom: 3rem;
+}
+
+.course-description h2 {
+    font-size: 1.8rem;
+    color: var(--terracotta);
+    margin-bottom: 1rem;
+}
+
+.course-description p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+}
+
+.course-description p:last-child {
+    margin-bottom: 0;
+}
+
+/* Registration Form */
+.registration-section {
+    background: linear-gradient(180deg, var(--stone-light) 0%, var(--cream) 100%);
+    padding: 4rem 2rem;
+}
+
+.registration-section .section-container {
+    max-width: 750px;
+    margin: 0 auto;
+}
+
+.registration-section .section-header {
+    margin-bottom: 2rem;
+}
+
+.registration-form {
+    background: var(--warm-white);
+    padding: 2.5rem;
+    border-radius: 4px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+}
+
+.registration-form h3 {
+    font-size: 1.4rem;
+    color: var(--brown-deep);
+    margin-bottom: 0.3rem;
+    margin-top: 1.5rem;
+}
+
+.registration-form h3:first-child {
+    margin-top: 0;
+}
+
+.registration-form .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.registration-form .form-row.three-col {
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.registration-form .form-group {
+    margin-bottom: 1rem;
+}
+
+.registration-form label {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 0.3rem;
+    font-weight: 400;
+}
+
+.registration-form input,
+.registration-form select,
+.registration-form textarea {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1px solid var(--stone);
+    border-radius: 4px;
+    font-size: 1rem;
+    font-family: inherit;
+    background: var(--warm-white);
+    color: var(--text-dark);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.registration-form input:focus,
+.registration-form select:focus,
+.registration-form textarea:focus {
+    outline: none;
+    border-color: var(--sage-green);
+    box-shadow: 0 0 0 3px rgba(122, 154, 107, 0.2);
+}
+
+.registration-form .checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.registration-form .checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.95rem;
+    color: var(--text-dark);
+    cursor: pointer;
+}
+
+.registration-form .checkbox-label input[type="checkbox"],
+.registration-form .checkbox-label input[type="radio"] {
+    width: auto;
+    accent-color: var(--terracotta);
+}
+
+.registration-form .form-divider {
+    border: none;
+    border-top: 1px solid var(--stone);
+    margin: 1.5rem 0;
+}
+
+.registration-form .registration-fee {
+    background: var(--stone-light);
+    padding: 1rem 1.5rem;
+    border-radius: 4px;
+    margin: 1.5rem 0;
+    font-size: 1rem;
+    color: var(--brown-deep);
+}
+
+.registration-form .registration-fee strong {
+    color: var(--terracotta);
+}
+
+.registration-form .form-note {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-style: italic;
+    margin-top: 0.5rem;
+}
+
+.registration-form .agreement-text {
+    font-size: 0.9rem;
+    color: var(--text-dark);
+    line-height: 1.6;
+    margin: 1rem 0;
+}
+
+.registration-form button[type="submit"] {
+    width: 100%;
+    padding: 1rem 2.5rem;
+    background: var(--terracotta);
+    color: var(--warm-white);
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(166, 93, 55, 0.25);
+    margin-top: 1rem;
+}
+
+.registration-form button[type="submit"]:hover {
+    background: var(--terracotta-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(166, 93, 55, 0.35);
+}
+
+.registration-form button[type="submit"]:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.registration-form .form-message {
+    margin-top: 1rem;
+    padding: 1rem;
+    border-radius: 4px;
+    text-align: center;
+    display: none;
+}
+
+.registration-form .form-message.success {
+    display: block;
+    background: rgba(122, 154, 107, 0.15);
+    color: var(--olive-green);
+}
+
+.registration-form .form-message.error {
+    display: block;
+    background: rgba(220, 53, 69, 0.1);
+    color: #dc3545;
+}
+
+@media (max-width: 768px) {
+    .registration-form .form-row,
+    .registration-form .form-row.three-col {
+        grid-template-columns: 1fr;
+    }
+
+    .registration-form {
+        padding: 1.5rem;
+    }
+
+    .course-info-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* Calendly Modal Styles */

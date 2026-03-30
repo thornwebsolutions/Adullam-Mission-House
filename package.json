@@ -1,0 +1,23 @@
+{
+  "name": "adullam-mission-house",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thornwebsolutions/Adullam-Mission-House.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thornwebsolutions/Adullam-Mission-House/issues"
+  },
+  "homepage": "https://github.com/thornwebsolutions/Adullam-Mission-House#readme",
+  "dependencies": {
+    "jspdf": "^4.2.1"
+  }
+}
