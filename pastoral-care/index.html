@@ -68,7 +68,8 @@
                 </div>
                 <div class="course-info-card">
                     <h3>Tuition</h3>
-                    <p>$975.00 (flexible payment plans)</p>
+                    <p>$975.00</p>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.3rem;">Payment plans available: monthly, bi-weekly, or weekly</p>
                 </div>
             </div>
 
@@ -145,15 +146,9 @@
                         <input type="text" id="zip" name="zip" required>
                     </div>
                 </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="dayPhone">Day Telephone</label>
-                        <input type="tel" id="dayPhone" name="dayPhone">
-                    </div>
-                    <div class="form-group">
-                        <label for="eveningPhone">Evening Telephone</label>
-                        <input type="tel" id="eveningPhone" name="eveningPhone">
-                    </div>
+                <div class="form-group">
+                    <label for="contactPhone">Contact Number *</label>
+                    <input type="tel" id="contactPhone" name="contactPhone" required>
                 </div>
 
                 <hr class="form-divider">
@@ -276,7 +271,7 @@
                             <input type="radio" name="classFormat" value="Online"> Online
                         </label>
                         <label class="checkbox-label">
-                            <input type="radio" name="classFormat" value="Correspondence"> Correspondence
+                            <input type="radio" name="classFormat" value="In-Person"> In-Person (select areas)
                         </label>
                     </div>
                 </div>
@@ -292,10 +287,13 @@
                     <label>I am paying by: *</label>
                     <div class="checkbox-group">
                         <label class="checkbox-label">
-                            <input type="radio" name="paymentMethod" value="PayPal" required> PayPal
+                            <input type="radio" name="paymentMethod" value="Zelle" required> Zelle (667-701-9214)
                         </label>
                         <label class="checkbox-label">
                             <input type="radio" name="paymentMethod" value="CashApp"> CashApp (667-701-9214)
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="radio" name="paymentMethod" value="CashApp-HRU"> CashApp ($AAMI.ShadyGrove.HRU)
                         </label>
                         <label class="checkbox-label">
                             <input type="radio" name="paymentMethod" value="Check"> Check
@@ -325,39 +323,9 @@
     <!-- Footer Component -->
     <site-footer></site-footer>
 
-    <!-- PayPal Modal -->
-    <div id="paypalModal" class="modal-overlay">
-        <div class="modal-content" style="max-width: 450px; text-align: center; padding: 3rem 2rem;">
-            <button class="modal-close" aria-label="Close">&times;</button>
-            <h2 style="font-family: 'Cormorant Garamond', serif; color: var(--terracotta); margin-bottom: 1.5rem;">Pay Now via PayPal</h2>
-            <p style="color: var(--text-muted); margin-bottom: 2rem;">You will be redirected to PayPal to complete your $90.00 registration fee payment.</p>
-            <a href="https://www.paypal.com" target="_blank" rel="noopener" class="cta-button" style="display: inline-block;">Continue to PayPal</a>
-        </div>
-    </div>
-
     <!-- Scripts -->
     <script src="/js/header.js"></script>
     <script src="/js/footer.js"></script>
     <script src="/js/main.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const modal = document.getElementById('paypalModal');
-            if (!modal) return;
-
-            const closeBtn = modal.querySelector('.modal-close');
-
-            closeBtn.addEventListener('click', function() {
-                modal.classList.remove('active');
-                document.body.style.overflow = '';
-            });
-
-            modal.addEventListener('click', function(e) {
-                if (e.target === modal) {
-                    modal.classList.remove('active');
-                    document.body.style.overflow = '';
-                }
-            });
-        });
-    </script>
 </body>
 </html>

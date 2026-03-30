@@ -126,8 +126,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 city: regForm.city.value,
                 state: regForm.state.value,
                 zip: regForm.zip.value,
-                dayPhone: regForm.dayPhone.value,
-                eveningPhone: regForm.eveningPhone.value,
+                contactPhone: regForm.contactPhone.value,
                 maritalStatus: getRadioValue('maritalStatus'),
                 highSchool: regForm.highSchool.value,
                 hsCity: regForm.hsCity.value,
@@ -152,18 +151,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
 
                 if (response.ok) {
-                    const selectedPayment = formData.paymentMethod;
                     regFormMessage.className = 'form-message success';
                     regFormMessage.textContent = 'Thank you! Your application has been submitted successfully. We will be in touch soon.';
                     regForm.reset();
-
-                    if (selectedPayment === 'PayPal') {
-                        const paypalModal = document.getElementById('paypalModal');
-                        if (paypalModal) {
-                            paypalModal.classList.add('active');
-                            document.body.style.overflow = 'hidden';
-                        }
-                    }
                 } else {
                     throw new Error('Failed to send');
                 }

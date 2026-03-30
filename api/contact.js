@@ -77,8 +77,7 @@ function generateRegistrationPDF(data) {
   addField('City/Town', data.city);
   addField('State', data.state);
   addField('Zip Code', data.zip);
-  addField('Day Telephone', data.dayPhone);
-  addField('Evening Telephone', data.eveningPhone);
+  addField('Contact Number', data.contactPhone);
   y += 3;
 
   // Personal Data
@@ -156,7 +155,7 @@ export default async function handler(req, res) {
   if (formType === 'registration') {
     const {
       middleName, maidenName, street, city, state, zip,
-      dayPhone, eveningPhone, maritalStatus, highSchool, hsCity,
+      contactPhone, maritalStatus, highSchool, hsCity,
       hsGradDate, college, collegeCity, major, degree, churchName,
       pastorName, attendRegularly, isMember, classFormat, paymentMethod
     } = req.body;
@@ -169,7 +168,7 @@ export default async function handler(req, res) {
       <p><strong>Email:</strong> ${email}</p>
       <h3>Mailing Address</h3>
       <p>${street || ''}<br>${city || ''}, ${state || ''} ${zip || ''}</p>
-      <p><strong>Day Phone:</strong> ${dayPhone || 'N/A'} | <strong>Evening Phone:</strong> ${eveningPhone || 'N/A'}</p>
+      <p><strong>Contact Number:</strong> ${contactPhone || 'N/A'}</p>
       <h3>Personal Data</h3>
       <p><strong>Marital Status:</strong> ${maritalStatus || 'N/A'}</p>
       <h3>Educational Background</h3>
@@ -221,7 +220,7 @@ export default async function handler(req, res) {
       },
       body: JSON.stringify({
         from: 'noreply@amissionhouse.com',
-        to: 'info@amissionhouse.com',
+        to: 'h.roscoe.university@moodle.aamig.org',
         subject: subject,
         html: htmlContent,
         ...(attachments && { attachments }),
