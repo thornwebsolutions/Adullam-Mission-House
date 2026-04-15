@@ -7,26 +7,17 @@ class SiteHeader extends HTMLElement {
         const currentPath = window.location.pathname;
         const isHomePage = currentPath === '/' || currentPath === '/index.html';
         const isBlogPage = currentPath.includes('/blog');
+        const isChristianEdPage = currentPath.includes('/christian-education') || currentPath.includes('/pastoral-care');
+        const isMeetPastorPage = currentPath.includes('/about/meet-the-pastor');
 
         this.innerHTML = `
             <nav>
                 <div class="nav-container">
                     <a href="/" class="nav-logo">Adullam Mission House</a>
                     <ul class="nav-links">
-                        ${isHomePage ? `
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#mission">Mission</a></li>
-                        <li><a href="#values">Values</a></li>
-                        <li><a href="#programs">Programs</a></li>
-                        <li><a href="#blog">Blog</a></li>
+                        <li><a href="/about/meet-the-pastor/"${isMeetPastorPage ? ' class="active"' : ''}>Meet the Pastor</a></li>
+                        <li><a href="/christian-education/"${isChristianEdPage ? ' class="active"' : ''}>Christian Education</a></li>
                         <li><a href="#" data-calendly-modal>Contact</a></li>
-                        ` : `
-                        <li><a href="/">Home</a></li>
-                        <li><a href="/#about">About</a></li>
-                        <li><a href="/#mission">Mission</a></li>
-                        <li><a href="/blog"${isBlogPage ? ' class="active"' : ''}>Blog</a></li>
-                        <li><a href="#" data-calendly-modal>Contact</a></li>
-                        `}
                     </ul>
                     <div class="mobile-menu" aria-label="Toggle navigation menu">
                         <span></span>
@@ -51,9 +42,16 @@ class SiteHeader extends HTMLElement {
                 navLinks.classList.toggle('active');
             });
 
-            // Close menu when a link is clicked
+            // Close menu when a link is clicked (but not dropdown parent links on mobile)
             navLinks.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', () => {
+                link.addEventListener('click', (e) => {
+                    const parentLi = link.closest('.has-dropdown');
+                    if (parentLi && link === parentLi.querySelector(':scope > a') && window.innerWidth <= 768) {
+                        e.preventDefault();
+                        e.stopImmediatePropagation();
+                        parentLi.classList.toggle('open');
+                        return;
+                    }
                     mobileMenu.classList.remove('active');
                     navLinks.classList.remove('active');
                 });

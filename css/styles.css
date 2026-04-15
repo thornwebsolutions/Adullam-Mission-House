@@ -354,6 +354,65 @@ nav {
     width: 100%;
 }
 
+.nav-links a.active {
+    color: var(--terracotta);
+}
+
+.nav-links a.active::after {
+    width: 100%;
+}
+
+/* Dropdown Menu */
+.has-dropdown {
+    position: relative;
+}
+
+.has-dropdown > a::after {
+    display: none;
+}
+
+.has-dropdown > a {
+    position: relative;
+}
+
+.dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: -0.75rem;
+    background: rgba(251, 249, 246, 0.98);
+    border: 1px solid var(--stone);
+    border-radius: 4px;
+    list-style: none;
+    padding: 0.5rem 0;
+    min-width: 180px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    z-index: 1001;
+}
+
+.has-dropdown:hover .dropdown {
+    display: block;
+}
+
+.dropdown li {
+    padding: 0;
+}
+
+.dropdown a {
+    display: block;
+    padding: 0.5rem 1rem;
+    white-space: nowrap;
+    font-size: 0.85rem;
+}
+
+.dropdown a::after {
+    display: none;
+}
+
+.dropdown a:hover {
+    background: var(--stone-light);
+}
+
 .mobile-menu {
     display: none;
     flex-direction: column;
@@ -1269,6 +1328,24 @@ a.contact-item:hover {
         gap: 1rem;
     }
 
+    .has-dropdown .dropdown {
+        position: static;
+        display: none;
+        border: none;
+        box-shadow: none;
+        background: transparent;
+        padding: 0.25rem 0 0 1rem;
+        min-width: auto;
+    }
+
+    .has-dropdown.open .dropdown {
+        display: block;
+    }
+
+    .dropdown a {
+        padding: 0.35rem 0;
+    }
+
     .mobile-menu.active span:nth-child(1) {
         transform: rotate(45deg) translate(5px, 5px);
     }
@@ -1785,5 +1862,173 @@ a.contact-item:hover {
 
     .modal-content .calendly-inline-widget {
         min-height: 100vh;
+    }
+}
+
+/* Meet the Pastor Page */
+.pastor-hero {
+    padding-top: 120px;
+    padding-bottom: 3rem;
+    background: linear-gradient(180deg, var(--warm-white) 0%, var(--cream) 100%);
+    text-align: center;
+}
+
+.pastor-hero h1 {
+    font-size: clamp(2.2rem, 5vw, 3.2rem);
+    color: var(--terracotta);
+    margin-bottom: 0.5rem;
+}
+
+.pastor-section {
+    background: var(--cream);
+    padding: 4rem 2rem;
+}
+
+.pastor-content {
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.pastor-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    box-shadow: 0 8px 30px rgba(92, 64, 51, 0.15);
+}
+
+.pastor-bio h2 {
+    font-size: 1.8rem;
+    color: var(--terracotta);
+    margin-bottom: 1rem;
+}
+
+.pastor-bio p {
+    font-size: 1.05rem;
+    color: var(--text-muted);
+    line-height: 1.8;
+    margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+    .pastor-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .pastor-image {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+}
+
+/* Christian Education Page */
+.edu-hero {
+    padding-top: 120px;
+    padding-bottom: 3rem;
+    background: linear-gradient(180deg, var(--warm-white) 0%, var(--cream) 100%);
+    text-align: center;
+}
+
+.edu-hero h1 {
+    font-size: clamp(2.2rem, 5vw, 3.2rem);
+    color: var(--terracotta);
+    margin-bottom: 0.5rem;
+}
+
+.edu-hero p {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    max-width: 700px;
+    margin: 1rem auto 0;
+}
+
+.edu-courses {
+    background: var(--cream);
+    padding: 4rem 2rem;
+}
+
+.edu-course-card {
+    max-width: 900px;
+    margin: 0 auto;
+    background: var(--warm-white);
+    border-radius: 6px;
+    padding: 2.5rem;
+    box-shadow: 0 4px 20px rgba(92, 64, 51, 0.08);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+    align-items: start;
+}
+
+.edu-course-info h2 {
+    font-size: 1.8rem;
+    color: var(--terracotta);
+    margin-bottom: 0.5rem;
+}
+
+.edu-course-info .edu-partner {
+    font-style: italic;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+}
+
+.edu-course-info p {
+    font-size: 1rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+}
+
+.edu-course-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.edu-detail {
+    background: var(--stone-light);
+    padding: 1rem;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.edu-detail h4 {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.3rem;
+}
+
+.edu-detail p {
+    font-size: 1rem;
+    color: var(--text-dark);
+    font-weight: 400;
+    margin-bottom: 0;
+}
+
+.edu-detail .note {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+}
+
+.edu-course-card .cta-button {
+    margin-top: 1rem;
+}
+
+@media (max-width: 768px) {
+    .edu-course-card {
+        grid-template-columns: 1fr;
+        padding: 1.5rem;
+    }
+
+    .edu-course-details {
+        grid-template-columns: 1fr;
     }
 }
