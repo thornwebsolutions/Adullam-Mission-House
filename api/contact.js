@@ -50,7 +50,7 @@ function generateRegistrationPDF(data) {
   doc.setFontSize(18);
   doc.setFont('helvetica', 'bold');
   doc.setTextColor(166, 93, 55);
-  doc.text('H. Roscoe University', pageWidth / 2, y, { align: 'center' });
+  doc.text('Adullam Mission House', pageWidth / 2, y, { align: 'center' });
   y += 8;
   addHeading('Registration Form');
   y += 5;
@@ -108,17 +108,7 @@ function generateRegistrationPDF(data) {
   addSectionTitle('Enrollment Details');
   addField('Program', 'Certificate - Pastoral Care');
   addField('Class Format', data.classFormat);
-  addField('Payment Method', data.paymentMethod);
   y += 5;
-
-  // Registration Fee
-  checkPage(20);
-  doc.setFillColor(243, 237, 231); // stone-light
-  doc.rect(20, y, pageWidth - 40, 12, 'F');
-  doc.setFontSize(11);
-  doc.setFont('helvetica', 'bold');
-  doc.setTextColor(166, 93, 55);
-  doc.text('Registration Fee: $90.00', pageWidth / 2, y + 8, { align: 'center' });
 
   // Return base64
   return doc.output('arraybuffer');
@@ -157,7 +147,7 @@ export default async function handler(req, res) {
       middleName, maidenName, street, city, state, zip,
       contactPhone, maritalStatus, highSchool, hsCity,
       hsGradDate, college, collegeCity, major, degree, churchName,
-      pastorName, attendRegularly, isMember, classFormat, paymentMethod
+      pastorName, attendRegularly, isMember, classFormat
     } = req.body;
 
     subject = 'New Pastoral Care Course Registration - Adullam Mission House';
@@ -183,7 +173,6 @@ export default async function handler(req, res) {
       <h3>Enrollment Details</h3>
       <p><strong>Program:</strong> Certificate - Pastoral Care</p>
       <p><strong>Class Format:</strong> ${classFormat || 'N/A'}</p>
-      <p><strong>Payment Method:</strong> ${paymentMethod || 'N/A'}</p>
       <p><strong>Agreed to Terms:</strong> Yes</p>
     `;
 
@@ -220,7 +209,7 @@ export default async function handler(req, res) {
       },
       body: JSON.stringify({
         from: 'noreply@amissionhouse.com',
-        to: 'h.roscoe.university@moodle.aamig.org',
+        to: 'info@amissionhouse.com',
         subject: subject,
         html: htmlContent,
         ...(attachments && { attachments }),

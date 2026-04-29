@@ -139,8 +139,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 pastorName: regForm.pastorName.value,
                 attendRegularly: getRadioValue('attendRegularly'),
                 isMember: getRadioValue('isMember'),
-                classFormat: getRadioValue('classFormat'),
-                paymentMethod: getRadioValue('paymentMethod')
+                classFormat: getRadioValue('classFormat')
             };
 
             try {
