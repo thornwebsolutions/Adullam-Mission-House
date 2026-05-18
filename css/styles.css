@@ -2064,3 +2064,88 @@ a.contact-item:hover {
         grid-template-columns: 1fr;
     }
 }
+
+/* Bible Study Section (homepage) */
+.bible-study {
+    background: linear-gradient(180deg, var(--cream) 0%, #F0E9DF 100%);
+    padding: 5rem 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.bible-study-card {
+    max-width: 900px;
+    margin: 0 auto;
+    background: var(--warm-white);
+    border-radius: 6px;
+    padding: 2.5rem;
+    box-shadow: 0 8px 30px rgba(92, 64, 51, 0.10);
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+.bible-study-icon {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--sage-green) 0%, var(--olive-green) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.bible-study-icon svg {
+    width: 36px;
+    height: 36px;
+    stroke: var(--warm-white);
+}
+
+.bible-study-content h3 {
+    font-size: 1.6rem;
+    color: var(--terracotta);
+    margin-bottom: 0.8rem;
+}
+
+.bible-study-meta {
+    background: var(--stone-light);
+    padding: 0.9rem 1.2rem;
+    border-radius: 4px;
+    border-left: 4px solid var(--sage-green);
+    margin-bottom: 1.2rem;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--text-dark);
+}
+
+.bible-study-content p {
+    font-size: 1rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin-bottom: 1.2rem;
+}
+
+.bible-study-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .bible-study-card {
+        grid-template-columns: 1fr;
+        padding: 1.5rem;
+        text-align: center;
+    }
+
+    .bible-study-icon {
+        margin: 0 auto;
+    }
+
+    .bible-study-actions {
+        justify-content: center;
+    }
+}

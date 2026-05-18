@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog | Adullam Mission House</title>
-    <meta name="description" content="Insights, encouragement, and resources for your healing journey. Read our blog for faith-based guidance on grief, restoration, and finding hope.">
+    <meta name="description" content="Faith-based blog with virtual Christian grief support resources, online Bible study for healing reflections, and encouragement for our faith-based trauma recovery community. New posts every week.">
+    <meta name="keywords" content="virtual Christian grief support, online Bible study for healing, faith-based trauma recovery group, Christian blog, weekly Bible study">
     <link rel="canonical" href="https://adullammissionhouse.com/blog">
 
     <!-- Open Graph Tags -->
     <meta property="og:title" content="Blog | Adullam Mission House">
-    <meta property="og:description" content="Insights, encouragement, and resources for your healing journey. Read our blog for faith-based guidance on grief, restoration, and finding hope.">
+    <meta property="og:description" content="Faith-based blog with virtual Christian grief support resources, online Bible study reflections, and encouragement for our faith-based trauma recovery community.">
     <meta property="og:image" content="https://adullammissionhouse.com/assets/og-image.png">
     <meta property="og:url" content="https://adullammissionhouse.com/blog">
     <meta property="og:type" content="website">
@@ -285,6 +286,94 @@
                 width: 100%;
             }
         }
+
+        /* Pinned Bible Study Banner */
+        .pinned-study {
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            gap: 1.5rem;
+            align-items: center;
+            background: linear-gradient(135deg, var(--sage-green) 0%, var(--olive-green) 100%);
+            color: var(--warm-white);
+            padding: 1.5rem 2rem;
+            border-radius: 8px;
+            margin-bottom: 3rem;
+            box-shadow: 0 6px 24px rgba(92, 122, 78, 0.25);
+        }
+
+        .pinned-study-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .pinned-study-icon svg {
+            width: 28px;
+            height: 28px;
+            stroke: var(--warm-white);
+        }
+
+        .pinned-study-text {
+            line-height: 1.5;
+        }
+
+        .pinned-study-tag {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            color: var(--warm-white);
+            padding: 0.2rem 0.7rem;
+            font-size: 0.7rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-radius: 3px;
+            margin-bottom: 0.4rem;
+        }
+
+        .pinned-study-text h3 {
+            font-size: 1.3rem;
+            color: var(--warm-white);
+            margin: 0 0 0.3rem 0;
+        }
+
+        .pinned-study-text p {
+            font-size: 0.95rem;
+            margin: 0;
+            opacity: 0.95;
+        }
+
+        .pinned-study-cta {
+            background: var(--warm-white);
+            color: var(--olive-green);
+            padding: 0.7rem 1.4rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            white-space: nowrap;
+            transition: transform 0.2s ease, background 0.3s ease;
+        }
+
+        .pinned-study-cta:hover {
+            background: var(--cream);
+            transform: translateY(-1px);
+        }
+
+        @media (max-width: 768px) {
+            .pinned-study {
+                grid-template-columns: 1fr;
+                text-align: center;
+                padding: 1.5rem;
+            }
+
+            .pinned-study-icon {
+                margin: 0 auto;
+            }
+        }
     </style>
 </head>
 <body>
@@ -304,20 +393,36 @@
     <main class="blog-content">
         <div class="blog-container">
 
+            <!-- Pinned: Weekly Bible Study -->
+            <div class="pinned-study fade-in">
+                <div class="pinned-study-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                    </svg>
+                </div>
+                <div class="pinned-study-text">
+                    <span class="pinned-study-tag">Weekly · Free · Virtual</span>
+                    <h3>Tuesday Bible Study</h3>
+                    <p>Join our free online Bible study for healing &amp; community. <strong>Tuesdays at 6:30 PM ET</strong> live on <strong>YouTube &amp; Facebook</strong>. A new reflection drops every Tuesday/Wednesday.</p>
+                </div>
+                <a href="https://www.youtube.com/@amissionhouse/streams" target="_blank" rel="noopener" class="pinned-study-cta">Join This Week</a>
+            </div>
+
             <!-- Featured Post -->
             <article class="featured-post fade-in">
                 <div class="featured-image">
-                    <span class="featured-badge">Featured</span>
+                    <span class="featured-badge">Latest</span>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <path d="M12 2v20"/>
-                        <path d="M5 8h14"/>
+                        <circle cx="12" cy="12" r="3"/>
+                        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
                     </svg>
                 </div>
                 <div class="featured-content">
-                    <span class="blog-date">February 3, 2026</span>
-                    <h2>The Challenge of Finding Healing in Today's Church</h2>
-                    <p>In recent years, many have expressed a heartfelt struggle: the difficulty of finding true healing within the walls of the modern church. It's not because churches lack the ability to provide compassionate care, but rather how some have embraced an aesthetic focus that sometimes overshadows the mission of healing, restoration, and transformation through Christ...</p>
-                    <a href="/blog/finding-healing-in-church" class="read-more">
+                    <span class="blog-date">May 19, 2026</span>
+                    <h2>Not Just a Cog — Understanding Your Vital Role in the Body of Christ</h2>
+                    <p>Based on 1 Corinthians 12:12-27. Have you ever felt like "just a cog in the machine"—easily replaced, unnoticed, or unimportant? Paul teaches us that the Body of Christ is made up of many parts—and every single one matters...</p>
+                    <a href="/blog/not-just-a-cog" class="read-more">
                         Continue Reading
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <line x1="5" y1="12" x2="19" y2="12"/>
@@ -329,6 +434,28 @@
 
             <!-- Blog Grid -->
             <div class="blog-grid">
+                <!-- Post: Finding Healing in Church (was featured) -->
+                <article class="blog-card fade-in">
+                    <div class="blog-image">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 2v20"/>
+                            <path d="M5 8h14"/>
+                        </svg>
+                    </div>
+                    <div class="blog-card-content">
+                        <span class="blog-date">February 3, 2026</span>
+                        <h3>The Challenge of Finding Healing in Today's Church</h3>
+                        <p>Exploring the difficulty of finding true healing within the modern church and how to balance dynamic worship with authentic care...</p>
+                        <a href="/blog/finding-healing-in-church" class="blog-link">
+                            Read More
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="5" y1="12" x2="19" y2="12"/>
+                                <polyline points="12 5 19 12 12 19"/>
+                            </svg>
+                        </a>
+                    </div>
+                </article>
+
                 <!-- Post 1 -->
                 <article class="blog-card fade-in">
                     <div class="blog-image">

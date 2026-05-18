@@ -179,6 +179,21 @@ document.addEventListener('DOMContentLoaded', function() {
         document.body.style.overflow = '';
     }
 
+    function openModal() {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    // Global trigger: any element with [data-calendly-modal] opens the modal.
+    // Handler lives on the document so it works for triggers added outside the header (e.g., Schedule Consultation button in Programs).
+    document.addEventListener('click', function(e) {
+        const trigger = e.target.closest('[data-calendly-modal]');
+        if (trigger) {
+            e.preventDefault();
+            openModal();
+        }
+    });
+
     // Close on button click
     if (closeBtn) {
         closeBtn.addEventListener('click', closeModal);

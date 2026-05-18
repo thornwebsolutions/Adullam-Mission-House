@@ -9,6 +9,7 @@ class SiteHeader extends HTMLElement {
         const isBlogPage = currentPath.includes('/blog');
         const isChristianEdPage = currentPath.includes('/christian-education') || currentPath.includes('/pastoral-care');
         const isMeetPastorPage = currentPath.includes('/about/meet-the-pastor');
+        const isEventsPage = currentPath.includes('/events');
 
         this.innerHTML = `
             <nav>
@@ -17,7 +18,8 @@ class SiteHeader extends HTMLElement {
                     <ul class="nav-links">
                         <li><a href="/about/meet-the-pastor/"${isMeetPastorPage ? ' class="active"' : ''}>Meet the Pastor</a></li>
                         <li><a href="/christian-education/"${isChristianEdPage ? ' class="active"' : ''}>Christian Education</a></li>
-                        <li><a href="#" data-calendly-modal>Contact</a></li>
+                        <li><a href="/events/"${isEventsPage ? ' class="active"' : ''}>Events</a></li>
+                        <li><a href="${isHomePage ? '#contact' : '/#contact'}">Contact</a></li>
                     </ul>
                     <div class="mobile-menu" aria-label="Toggle navigation menu">
                         <span></span>
