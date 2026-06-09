@@ -7,7 +7,7 @@ class SiteHeader extends HTMLElement {
         const currentPath = window.location.pathname;
         const isHomePage = currentPath === '/' || currentPath === '/index.html';
         const isBlogPage = currentPath.includes('/blog');
-        const isChristianEdPage = currentPath.includes('/christian-education') || currentPath.includes('/pastoral-care');
+        const isChristianEdPage = currentPath.includes('/christian-education');
         const isMeetPastorPage = currentPath.includes('/about/meet-the-pastor');
         const isEventsPage = currentPath.includes('/events');
 
@@ -17,8 +17,9 @@ class SiteHeader extends HTMLElement {
                     <a href="/" class="nav-logo">Adullam Mission House</a>
                     <ul class="nav-links">
                         <li><a href="/about/meet-the-pastor/"${isMeetPastorPage ? ' class="active"' : ''}>Meet the Pastor</a></li>
-                        <li><a href="/christian-education/"${isChristianEdPage ? ' class="active"' : ''}>Christian Education</a></li>
+                        <li><a href="/christian-education/"${isChristianEdPage ? ' class="active"' : ''}>Consultation/Training</a></li>
                         <li><a href="/events/"${isEventsPage ? ' class="active"' : ''}>Events</a></li>
+                        <li><a href="/blog"${isBlogPage ? ' class="active"' : ''}>Blog</a></li>
                         <li><a href="${isHomePage ? '#contact' : '/#contact'}">Contact</a></li>
                     </ul>
                     <div class="mobile-menu" aria-label="Toggle navigation menu">

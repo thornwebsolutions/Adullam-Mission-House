@@ -10,10 +10,47 @@
     <!-- Open Graph Tags -->
     <meta property="og:title" content="Events | Adullam Mission House">
     <meta property="og:description" content="Upcoming events at Adullam Mission House. Join us for workshops, gatherings, and our free virtual Christian Bible study.">
-    <meta property="og:image" content="https://adullammissionhouse.com/assets/events/pastoral-care-look-and-learn.png">
+    <meta property="og:image" content="https://adullammissionhouse.com/assets/events/prayers-from-the-cave.jpg">
     <meta property="og:url" content="https://adullammissionhouse.com/events/">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Adullam Mission House">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Event",
+        "name": "Prayers from the Cave",
+        "description": "A weekly prayer & journaling gathering. Join AMH every Saturday at 9:15 a.m. to slow down, pray, reflect, and grow deeper in your relationship with God and in community with others.",
+        "eventSchedule": {
+            "@type": "Schedule",
+            "repeatFrequency": "P1W",
+            "byDay": "https://schema.org/Saturday",
+            "startTime": "09:15",
+            "scheduleTimezone": "America/New_York"
+        },
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "location": {
+            "@type": "Place",
+            "name": "Doko Meadows Park — Palmetto Citizens Amphitheater",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "171 Langford Road",
+                "addressLocality": "Blythewood",
+                "addressRegion": "SC",
+                "postalCode": "29016",
+                "addressCountry": "US"
+            }
+        },
+        "image": "https://adullammissionhouse.com/assets/events/prayers-from-the-cave.jpg",
+        "organizer": {
+            "@type": "Organization",
+            "name": "Adullam Mission House",
+            "url": "https://adullammissionhouse.com"
+        }
+    }
+    </script>
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="/assets/favicon.png">
@@ -34,46 +71,6 @@
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
         gtag('config', 'G-QHEHW3YHQR');
-    </script>
-
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Event",
-        "name": "Pastoral Care Look & Learn",
-        "description": "Discover if the Pastoral Care Certification Course is right for YOUR leadership team. An informative workshop designed for ministry leaders to get a brief glimpse into the essentials of pastoral care.",
-        "startDate": "2026-05-21T09:30:00-04:00",
-        "endDate": "2026-05-21T19:30:00-04:00",
-        "eventAttendanceMode": "https://schema.org/OnlineEventAttendanceMode",
-        "eventStatus": "https://schema.org/EventScheduled",
-        "location": {
-            "@type": "VirtualLocation",
-            "url": "https://adullammissionhouse.com/events/"
-        },
-        "image": "https://adullammissionhouse.com/assets/events/pastoral-care-look-and-learn.png",
-        "organizer": {
-            "@type": "Organization",
-            "name": "Adullam Mission House",
-            "url": "https://adullammissionhouse.com"
-        },
-        "offers": [
-            {
-                "@type": "Offer",
-                "name": "9:30 AM Session",
-                "url": "https://www.eventbrite.com/e/1989192997804?aff=oddtdtcreator",
-                "availability": "https://schema.org/InStock",
-                "validFrom": "2026-04-01T00:00:00-04:00"
-            },
-            {
-                "@type": "Offer",
-                "name": "6:30 PM Session",
-                "url": "https://www.eventbrite.com/e/1989240691457?aff=oddtdtcreator",
-                "availability": "https://schema.org/InStock",
-                "validFrom": "2026-04-01T00:00:00-04:00"
-            }
-        ]
-    }
     </script>
 
     <style>
@@ -207,6 +204,47 @@
             text-align: center;
             padding: 3rem 1rem;
             color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .events-section-title {
+            max-width: 1000px;
+            margin: 0 auto 1.5rem;
+            font-size: 1.6rem;
+            color: var(--terracotta);
+        }
+
+        .events-section-title.past {
+            margin-top: 4rem;
+            padding-top: 3rem;
+            border-top: 1px solid var(--stone);
+        }
+
+        .event-card.archived .event-flyer {
+            filter: grayscale(35%);
+            opacity: 0.9;
+        }
+
+        .event-badge {
+            display: inline-block;
+            background: var(--stone-light);
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 0.3rem 0.7rem;
+            border-radius: 4px;
+            margin-bottom: 0.75rem;
+        }
+
+        .event-archived-note {
+            background: var(--stone-light);
+            border-radius: 4px;
+            padding: 1rem 1.2rem;
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            margin-top: 1.2rem;
         }
 
         @media (max-width: 768px) {
@@ -238,47 +276,179 @@
 
     <!-- Events List -->
     <section class="events-list">
+        <h2 class="events-section-title">Upcoming Events</h2>
+
         <article class="event-card fade-in">
-            <img src="/assets/events/pastoral-care-look-and-learn.png" alt="Pastoral Care Look &amp; Learn event flyer" class="event-flyer" loading="lazy">
+            <img src="/assets/events/prayers-from-the-cave.jpg" alt="Prayers from the Cave — weekly prayer &amp; journaling gathering flyer" class="event-flyer" loading="lazy">
             <div class="event-info">
-                <h2>Pastoral Care Look &amp; Learn</h2>
-                <p class="event-tagline">Discover if the Pastoral Care Certification Course is right for YOUR leadership team.</p>
-                <p>Join this informative workshop designed for ministry leaders to get a brief glimpse into the essentials of pastoral care. Come learn. Engage. Get equipped.</p>
+                <h2>Prayers from the Cave</h2>
+                <p class="event-tagline">A weekly prayer &amp; journaling gathering.</p>
+                <p>Come and join AMH every Saturday at 9:15 a.m. for a time to slow down, pray, reflect, and grow deeper in your relationship with God and in community with others. A place to pray. A place to write. A place to draw near.</p>
 
                 <div class="event-meta">
                     <div class="event-meta-item">
-                        <h4>Date</h4>
+                        <h4>When</h4>
+                        <p>Every Saturday, 9:15 AM</p>
+                    </div>
+                    <div class="event-meta-item">
+                        <h4>Location</h4>
+                        <p>Doko Meadows Park</p>
+                    </div>
+                    <div class="event-meta-item">
+                        <h4>Address</h4>
+                        <p>171 Langford Road, Blythewood, SC 29016</p>
+                    </div>
+                    <div class="event-meta-item">
+                        <h4>Bring</h4>
+                        <p>Your journal, a lawn chair or blanket, a snack or beverage</p>
+                    </div>
+                </div>
+
+                <div class="event-archived-note">
+                    We'd love to prepare for you! Comment &ldquo;PRAY&rdquo; on our social posts or send us a DM if you plan to join us.
+                </div>
+
+                <div class="event-sessions">
+                    <a href="https://maps.google.com/?q=Doko+Meadows+Park,+171+Langford+Road,+Blythewood,+SC+29016" target="_blank" rel="noopener" class="event-session-btn">
+                        <span>Get Directions</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="5" y1="12" x2="19" y2="12"/>
+                            <polyline points="12 5 19 12 12 19"/>
+                        </svg>
+                    </a>
+                </div>
+
+                <p style="margin-top: 1.2rem; font-size: 0.9rem;">Questions? Email <a href="mailto:info@amissionhouse.com" style="color: var(--terracotta);">info@amissionhouse.com</a></p>
+            </div>
+        </article>
+
+        <article class="event-card fade-in">
+            <img src="/assets/events/grace-in-the-grief.png" alt="Grace in the Grief — grief support group flyer" class="event-flyer" loading="lazy">
+            <div class="event-info">
+                <h2>Grace in the Grief</h2>
+                <p class="event-tagline">A grief support group.</p>
+                <p>Grief can feel heavy, isolating, and hard to put into words. Whether your loss is recent or years old, you do not have to walk through it alone.</p>
+
+                <div class="event-meta">
+                    <div class="event-meta-item">
+                        <h4>When</h4>
+                        <p>Every other Friday, beginning June 12</p>
+                    </div>
+                    <div class="event-meta-item">
+                        <h4>Time</h4>
+                        <p>6:00 PM</p>
+                    </div>
+                    <div class="event-meta-item">
+                        <h4>Location</h4>
+                        <p>Virtual Gathering (Zoom)</p>
+                    </div>
+                </div>
+
+                <div class="event-archived-note">
+                    Comment &ldquo;GRACE&rdquo; on our social posts and we'll send you the Zoom information.
+                </div>
+
+                <p style="margin-top: 1.2rem; font-size: 0.9rem;">Questions? Email <a href="mailto:info@amissionhouse.com" style="color: var(--terracotta);">info@amissionhouse.com</a></p>
+            </div>
+        </article>
+
+        <article class="event-card fade-in">
+            <img src="/assets/events/the-covenant-cave.png" alt="The Covenant Cave — couple's support community flyer" class="event-flyer" loading="lazy">
+            <div class="event-info">
+                <h2>The Covenant Cave</h2>
+                <p class="event-tagline">A couple's support community at Adullam Mission House.</p>
+                <p>The Covenant Cave is a monthly virtual support group for married couples who desire a safe space to strengthen communication, navigate challenges, receive encouragement, and grow together. We believe marriages need that too.</p>
+
+                <div class="event-meta">
+                    <div class="event-meta-item">
+                        <h4>When</h4>
+                        <p>Second Thursday of every month</p>
+                    </div>
+                    <div class="event-meta-item">
+                        <h4>Time</h4>
+                        <p>6:00 PM</p>
+                    </div>
+                    <div class="event-meta-item">
+                        <h4>Location</h4>
+                        <p>Adullam Mission House's Virtual Cave</p>
+                    </div>
+                    <div class="event-meta-item">
+                        <h4>Format</h4>
+                        <p>Private Facebook group</p>
+                    </div>
+                </div>
+
+                <div class="event-archived-note">
+                    This is a private Facebook group. Couples who are interested will be added to the group&mdash;email us or send a DM to join.
+                </div>
+
+                <p style="margin-top: 1.2rem; font-size: 0.9rem;">Questions? Email <a href="mailto:info@amissionhouse.com" style="color: var(--terracotta);">info@amissionhouse.com</a></p>
+            </div>
+        </article>
+
+        <article class="event-card fade-in">
+            <img src="/assets/events/graced-to-carry.png" alt="Graced to Carry — bi-weekly support circle for women pastors flyer" class="event-flyer" loading="lazy">
+            <div class="event-info">
+                <h2>Graced to Carry</h2>
+                <p class="event-tagline">A bi-weekly support circle for women pastors.</p>
+                <p>The call to shepherd is sacred&mdash;but it can also feel heavy. Join a safe space for women pastors to find encouragement, honest conversation, prayer, and support with women who understand the unique joys and burdens of ministry.</p>
+
+                <div class="event-meta">
+                    <div class="event-meta-item">
+                        <h4>We Begin</h4>
+                        <p>June 26, 2026</p>
+                    </div>
+                    <div class="event-meta-item">
+                        <h4>Time</h4>
+                        <p>11:30 AM</p>
+                    </div>
+                    <div class="event-meta-item">
+                        <h4>Where</h4>
+                        <p>Dinner Done by Brooks, 100 Pontiac Business Center Dr, Unit F, Elgin, SC 29045</p>
+                    </div>
+                    <div class="event-meta-item">
+                        <h4>Frequency</h4>
+                        <p>Bi-weekly · A light lunch will be provided</p>
+                    </div>
+                </div>
+
+                <div class="event-sessions">
+                    <a href="https://maps.google.com/?q=Dinner+Done+by+Brooks,+100+Pontiac+Business+Center+Dr,+Unit+F,+Elgin,+SC+29045" target="_blank" rel="noopener" class="event-session-btn">
+                        <span>Get Directions</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="5" y1="12" x2="19" y2="12"/>
+                            <polyline points="12 5 19 12 12 19"/>
+                        </svg>
+                    </a>
+                </div>
+
+                <p style="margin-top: 1.2rem; font-size: 0.9rem;">Questions? Email <a href="mailto:info@amissionhouse.com" style="color: var(--terracotta);">info@amissionhouse.com</a></p>
+            </div>
+        </article>
+
+        <!-- Past / Archived Events -->
+        <h2 class="events-section-title past">Past Events</h2>
+        <article class="event-card archived fade-in">
+            <img src="/assets/events/pastoral-care-look-and-learn.png" alt="Pastoral Care Look &amp; Learn event flyer" class="event-flyer" loading="lazy">
+            <div class="event-info">
+                <span class="event-badge">Past Event</span>
+                <h2>Pastoral Care Look &amp; Learn</h2>
+                <p class="event-tagline">Discover if the Pastoral Care Training Clinics are right for YOUR leadership team.</p>
+                <p>An informative workshop designed for ministry leaders to get a brief glimpse into the essentials of pastoral care. Come learn. Engage. Get equipped.</p>
+
+                <div class="event-meta">
+                    <div class="event-meta-item">
+                        <h4>Last Held</h4>
                         <p>May 21, 2026</p>
                     </div>
                     <div class="event-meta-item">
                         <h4>Location</h4>
                         <p>Virtual</p>
                     </div>
-                    <div class="event-meta-item">
-                        <h4>Sessions</h4>
-                        <p>9:30 AM &amp; 6:30 PM</p>
-                    </div>
-                    <div class="event-meta-item">
-                        <h4>Register</h4>
-                        <p>Eventbrite</p>
-                    </div>
                 </div>
 
-                <div class="event-sessions">
-                    <a href="https://www.eventbrite.com/e/1989192997804?aff=oddtdtcreator" target="_blank" rel="noopener" class="event-session-btn">
-                        <span>Register for 9:30 AM Session</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <line x1="5" y1="12" x2="19" y2="12"/>
-                            <polyline points="12 5 19 12 12 19"/>
-                        </svg>
-                    </a>
-                    <a href="https://www.eventbrite.com/e/1989240691457?aff=oddtdtcreator" target="_blank" rel="noopener" class="event-session-btn">
-                        <span>Register for 6:30 PM Session</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <line x1="5" y1="12" x2="19" y2="12"/>
-                            <polyline points="12 5 19 12 12 19"/>
-                        </svg>
-                    </a>
+                <div class="event-archived-note">
+                    This event has concluded. We plan to offer it again soon&mdash;check back for new dates, or email us to be notified.
                 </div>
 
                 <p style="margin-top: 1.2rem; font-size: 0.9rem;">Questions? Email <a href="mailto:info@amissionhouse.com" style="color: var(--terracotta);">info@amissionhouse.com</a></p>

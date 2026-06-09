@@ -1990,10 +1990,29 @@ a.contact-item:hover {
     border-radius: 6px;
     padding: 2.5rem;
     box-shadow: 0 4px 20px rgba(92, 64, 51, 0.08);
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2.5rem;
-    align-items: start;
+}
+
+.edu-consultation {
+    max-width: 900px;
+    margin: 2rem auto 0;
+    background: var(--warm-white);
+    border-radius: 6px;
+    padding: 2.5rem;
+    box-shadow: 0 4px 20px rgba(92, 64, 51, 0.08);
+    text-align: center;
+}
+
+.edu-consultation h2 {
+    font-size: 1.8rem;
+    color: var(--terracotta);
+    margin-bottom: 0.75rem;
+}
+
+.edu-consultation p {
+    font-size: 1rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
 }
 
 .edu-course-info h2 {
@@ -2132,6 +2151,24 @@ a.contact-item:hover {
     gap: 1rem;
     flex-wrap: wrap;
     margin-top: 1.5rem;
+}
+
+/* Add to Calendar button — themed to match .cta-button (terracotta) */
+.bible-study-actions add-to-calendar-button {
+    display: inline-block;
+    --font: 'Lato', sans-serif;
+    --btn-background: var(--terracotta);
+    --btn-text: var(--warm-white);
+    --btn-shadow: 0 4px 15px rgba(166, 93, 55, 0.25);
+    --btn-hover-background: var(--terracotta-dark);
+    --btn-hover-text: var(--warm-white);
+    --btn-border: var(--terracotta);
+    --btn-hover-border: var(--terracotta-dark);
+    --btn-border-radius: 2px;
+    --btn-padding-x: 2.5rem;
+    --btn-padding-y: 1rem;
+    --btn-font-weight: 400;
+    --base-font-size-l: 0.95rem;
 }
 
 @media (max-width: 768px) {
