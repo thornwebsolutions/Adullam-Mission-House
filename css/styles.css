@@ -1500,6 +1500,23 @@ a.contact-item:hover {
     color: var(--text-muted);
 }
 
+.article-content ul,
+.article-content ol {
+    margin: 1rem 0 1.5rem;
+    padding-left: 1.5rem;
+    color: var(--text-dark);
+}
+
+.article-content li {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin-bottom: 0.6rem;
+}
+
+.article-content li::marker {
+    color: var(--sage-green);
+}
+
 .back-to-blog,
 .back-link {
     display: inline-flex;
